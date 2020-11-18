@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title></title>
+  <meta name="ad.size" content="width=300,height=250">
+  <script type="text/javascript">
+    var clickTag = "https://www.google.com/";
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+  <style type="text/css">
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    * {
+      padding: 0;
+    }
+
+    .container {
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .banner-content {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      display: none;
+      z-index: 1;
+    }
+
+    .banner-content.banner-content--active {
+      opacity: 1;
+      display: block;
+    }
+
+    .b-300x250 {
+      width: 300px;
+      height: 250px;
+      padding: 0;
+    }
+
+    /*CTA BTN*/
+    .btn-container {
+      width: 300px;
+      height: 250px;
+      background-color: transparent;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      z-index: 100;
+      cursor: pointer;
+    }
+
+    img {
+      width: 300px;
+      height: 250px;
+    }
+
+    .cta-btn {
+      background-color: #fff;
+      opacity: 1;
+      width: 130px;
+      height: 35px;
+      border-radius: 6px;
+      top: 192px;
+      left: 85px;
+      position: absolute;
+      z-index: 0;
+    }
+
+    .cta-btn.hovered {
+      transform: scale(1.05);
+    }
+
+
+    .banner-border {
+      position: absolute;
+      width: 298px;
+      height: 248px;
+      border: 1px solid #000000;
+      pointer-events: none;
+      z-index: 6;
+      top: 0px;
+      left: 0px;
+    }
+
+    .exit {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 5;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+    }
+
+
+    .frame {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #342696;
+      /* transform: translateX(300px); */
+    }
+
+    .frame__headline {
+      position: absolute;
+      height: 25px;
+      width: auto;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      top: 15px;
+      opacity: 0;
+    }
+
+    .frame__headline:first-of-type {
+      height: 20px;
+    }
+
+    .frame__background, .frame__slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 0;
+    }
+
+    .logo {
+      width: 36px;
+      height: auto;
+      position: absolute;
+      left: 13px;
+      top: 203px;;
+      z-index: 10;
+    }
+
+    .device-mask {
+      width: 127px;
+      height: auto;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: 0 auto;
+      z-index: 1;
+    }
+
+    .frame__screen {
+      width: 114px;
+      height: auto;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: 0 auto;
+      z-index: 1;
+      opacity: 0;
+    }
+    
+  </style>
+  <script type="text/javascript" charset="utf-8">
+    document.addEventListener("DOMContentLoaded", function (e) {
+      // variables
+      var loadedImage = 0;
+      var images = [];
+      var exit = document.querySelector('.exit');
+      // var legalExit = document.querySelector('.legal-exit');
+      var bannerContent = document.querySelector('.banner-content');
+
+      var bannerConfig = {
+        width: 300,
+        height: 250
+      }
+
+
+      // list all animating elements
+      // var ctaBtn = document.querySelector('.cta-btn');
+      // var logo = document.querySelector('.js-logo');
+      // var circleInner = document.querySelector('.js-circle-inner');
+      // var frame1 = document.querySelector('.js-frame-1');
+      // var frame2 = document.querySelector('.js-frame-2');
+      // var slide1 = document.querySelector('.js-frame-slide-1');
+      // var slide2 = document.querySelector('.js-frame-slide-2');
+      // var slide3 = document.querySelector('.js-frame-slide-3');
+
+      var h1 = document.querySelector('.js-headline-1');
+      var h2 = document.querySelector('.js-headline-2');
+      var h3 = document.querySelector('.js-headline-3');
+      var h4 = document.querySelector('.js-headline-4');
+      var s1 = document.querySelector('.js-screen-1');
+      var s2 = document.querySelector('.js-screen-2');
+      var s3 = document.querySelector('.js-screen-3');
+      var s4 = document.querySelector('.js-screen-4');
+
+
+
+
+
+
+      // timelines
+      var bannerTL;
+
+      function bannerAnimation() {
+
+
+        bannerTL = new TimelineMax({ paused: false });
+        bannerTL
+          // frame slide RTL
+          .to([h1, s1], 0, { opacity: 1, ease: Sine.easeOut }, '0')
+          .to([h1, s1], .25, { opacity: 0, ease: Sine.easeOut }, '+=2')
+          .to([h2, s2], .25, { opacity: 1, ease: Sine.easeOut }, '-=0')
+          .to([h2, s2], .25, { opacity: 0, ease: Sine.easeOut }, '+=2')
+          .to([h3, s3], .25, { opacity: 1, ease: Sine.easeOut }, '-=0')
+          .to([h3, s3], .25, { opacity: 0, ease: Sine.easeOut }, '+=2')
+          .to([h4, s4], .25, { opacity: 1, ease: Sine.easeOut }, '-=0')
+          // // frame 1 slide 1
+          // .to(slide1, 0, { opacity: 1, ease: Sine.easeOut }, '-=1')
+          // .to(slide1, .5, { opacity: 0, ease: Sine.easeOut }, '+=2')
+          // .to(circleInner, .25, { css:{scaleX: 1.2, scaleY: 1.2}, ease: Sine.easeOut }, '-=.5')
+          // .to(circleInner, .25, { css:{scaleX: 1, scaleY: 1}, ease: Sine.easeOut }, '-=0')
+          // // frame 1 slide 2
+          // .to(slide2, .5, { opacity: 1, ease: Sine.easeOut }, '-=.25')
+          // .to(slide2, .5, { opacity: 0, ease: Sine.easeOut }, '+=2')
+          // .to(circleInner, .25, { css:{scaleX: 1.2, scaleY: 1.2}, ease: Sine.easeOut }, '-=.5')
+          // .to(circleInner, .25, { css:{scaleX: 1, scaleY: 1}, ease: Sine.easeOut }, '-=0')
+          // // frame 1 slide 3
+          // .to(slide3, .5, { opacity: 1, ease: Sine.easeOut }, '-=.25')
+          // .to(slide3, .5, { opacity: 1, ease: Sine.easeOut }, '+=2')
+          // // frame 2 endframe
+          // .to(logo, .5, { x: '97', y: '10', ease: Sine.easeOut }, '-=.5')
+          // .to(frame1, .5, { x: '-300', ease: Sine.easeOut }, '-=.5')
+          // .to(frame2, .5, { x: '0', ease: Sine.easeOut }, '-=.5')
+
+        // setTimeout(function () {
+        //   bannerTL.pause();
+        //   console.log('pausing');
+        // }, 15000)
+
+        function ctaOnHover() {
+          ctaBtn.classList.toggle('hovered');
+        }
+
+        exit.addEventListener('mouseenter', ctaOnHover);
+        exit.addEventListener('mouseout', ctaOnHover);
+      }
+
+      function preload() {
+        images = [
+          './images/logo.png',
+          './images/device-mask.png',
+          './images/F1-H.png',
+          './images/F2-H.png',
+          './images/F3-H.png',
+          './images/F4-H.png',
+          './images/screen-1.png',
+          './images/screen-2.png',
+          './images/screen-3.png',
+          './images/screen-4.png',
+
+        ];
+
+        for (var i = 0; i < images.length; i++) {
+          var imageObj = new Image();
+          imageObj.src = images[i];
+          imageObj.addEventListener("load", iLoad, false);
+        }
+
+      }
+      function iLoad() {
+        loadedImage++;
+        if (images.length == loadedImage) {
+          init();
+        }
+      }
+
+      function init() {
+
+        bannerContent.classList.add('banner-content--active');
+        bannerAnimation();
+
+      }
+
+      preload();
+    });
+  </script>
+
+<body>
+  <div id="container" class="container b-300x250" style="background-color: #342696;">
+    <div class="banner-border"></div>
+    <a class="exit" href="javascript:void(window.open(window.clickTag))"></a>
+    <div class="banner-content">
+      <img class="logo" src="./images/logo.png" alt="">
+      <img class="device-mask js-device-mask" src="./images/device-mask.png" alt="">
+      <div class="frame frame--1 js-frame-1">
+        <img class="frame__headline js-headline-1" src="./images/F1-H.png" alt="Music that moves">
+        <img class="frame__headline js-headline-2" src="./images/F2-H.png" alt="Comedy that laughs">
+        <img class="frame__headline js-headline-3" src="./images/F3-H.png" alt="Sports that laugh">
+        <img class="frame__headline js-headline-4" src="./images/F4-H.png" alt="All curated for you">
+
+        <img class="frame__screen js-screen-1" src="./images/screen-1.png" alt="">
+        <img class="frame__screen js-screen-2" src="./images/screen-2.png" alt="">
+        <img class="frame__screen js-screen-3" src="./images/screen-3.png" alt="">
+        <img class="frame__screen js-screen-4" src="./images/screen-4.png" alt="">
+
+
+
+
+
+      </div>
+      <div class="frame frame--2 js-frame-2">
+        <!-- <img src="./images/endframe.png" class="frame__slide" alt="">
+        <div class="cta-btn"></div> -->
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
