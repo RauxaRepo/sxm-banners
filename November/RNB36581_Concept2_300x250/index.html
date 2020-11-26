@@ -221,7 +221,6 @@
       right: -18px;
       transform: translateY(110px);
       margin: 0 auto;
-      z-index: 1;
       opacity: 0;
     }
 
@@ -246,50 +245,41 @@
       var bannerTL;
 
       function playFrames() {
-        var frame1ImageUrls = [
+        preloadImages([
           './images/F1-H.png',
           './images/F1-SH.png',
           './images/F1-screen-bottom.png',
           './images/F1-screen-middle.png',
-          './images/F1-screen-top.png',
-        ];
-        var frame1Container = document.querySelector('.js-frame-1');
-        var frame1Images = Array.from(frame1Container.querySelectorAll('img'));
-        
-        for (var i = 0; i < frame1Images.length; i++) {
-          frame1Images[i].src = frame1ImageUrls[i];
-        }
+          './images/F1-screen-top.png'],
+          document.querySelector('.js-frame-1'));
 
         var sh1 = document.querySelector('.js-f1-subhead');
         var f1ScreenTop = document.querySelector('.js-f1-screen-top');
         var f1ScreenMiddle = document.querySelector('.js-f1-screen-middle');
+        var f1 = document.querySelector('.js-frame-1');
 
         bannerTL
+          .to(f1, 0, { opacity: 1})
           .to([sh1], .5, { opacity: 1, ease: Sine.easeOut }, '+=1')
           .to([f1ScreenMiddle, f1ScreenTop], .5, { opacity: 1, ease: Sine.easeOut }, '-=.75')
           .to([f1ScreenTop], .75, { y: 95, ease: Elastic.easeOut.config(.3, .4), y: 98 }, '-=.5')
           .to([f1ScreenMiddle], .75, { y: 80, ease: Elastic.easeOut.config(.3, .4), y: 84 }, '-=.75')
-          .to([f1ScreenTop, f1ScreenMiddle], .5, { y: 110, ease: Sine.easeOut, onComplete:function(){
+          .to([f1ScreenTop, f1ScreenMiddle], .5, { y: 110, ease: Sine.easeOut,
+          onStart:function() {
+            preloadImages([
+              './images/F2-H.png',
+              './images/F2-SH.png',
+              './images/F2-screen-bottom.png',
+              './images/F2-screen-middle.png',
+              './images/F2-screen-top.png'],
+              document.querySelector('.js-frame-2'));
+          },
+          onComplete:function(){
             frame2();
           } }, '+=1')
       }
 
-
       function frame2() {
-        var frame2ImageUrls = [
-          './images/F2-H.png',
-          './images/F2-SH.png',
-          './images/F2-screen-bottom.png',
-          './images/F2-screen-middle.png',
-          './images/F2-screen-top.png',
-        ];
-        var frame2Container = document.querySelector('.js-frame-2');
-        var frame2Images = Array.from(frame2Container.querySelectorAll('img'));
-        
-        for (var i = 0; i < frame2Images.length; i++) {
-          frame2Images[i].src = frame2ImageUrls[i];
-        }
-
         var sh2 = document.querySelector('.js-f2-subhead');
         var f2ScreenTop = document.querySelector('.js-f2-screen-top');
         var f2ScreenMiddle = document.querySelector('.js-f2-screen-middle');
@@ -304,26 +294,22 @@
           .to([f2ScreenMiddle, f2ScreenTop], .5, { opacity: 1, ease: Sine.easeOut }, '-=.75')
           .to([f2ScreenTop], .75, { y: 95, ease: Elastic.easeOut.config(.3, .4), y: 98 }, '-=.5')
           .to([f2ScreenMiddle], .75, { y: 80, ease: Elastic.easeOut.config(.3, .4), y: 84 }, '-=.75')
-          .to([f2ScreenTop, f2ScreenMiddle], .5, { y: 110, ease: Sine.easeOut, onComplete:function(){
+          .to([f2ScreenTop, f2ScreenMiddle], .5, { y: 110, ease: Sine.easeOut,
+            onStart:function() {
+            preloadImages([
+              './images/F3-H.png',
+              './images/F3-SH.png',
+              './images/F3-screen-bottom.png',
+              './images/F3-screen-middle.png',
+              './images/F3-screen-top.png'],
+              document.querySelector('.js-frame-3'));
+          },
+          onComplete:function(){
             frame3();
           } }, '+=1')
       }
 
       function frame3() {
-        var frame3ImageUrls = [
-          './images/F3-H.png',
-          './images/F3-SH.png',
-          './images/F3-screen-bottom.png',
-          './images/F3-screen-middle.png',
-          './images/F3-screen-top.png',
-        ];
-        var frame3Container = document.querySelector('.js-frame-3');
-        var frame3Images = Array.from(frame3Container.querySelectorAll('img'));
-        
-        for (var i = 0; i < frame3Images.length; i++) {
-          frame3Images[i].src = frame3ImageUrls[i];
-        }
-
         var sh3 = document.querySelector('.js-f3-subhead');
         var f3ScreenTop = document.querySelector('.js-f3-screen-top');
         var f3ScreenMiddle = document.querySelector('.js-f3-screen-middle');
@@ -337,27 +323,22 @@
           .to([f3ScreenMiddle, f3ScreenTop], .5, { opacity: 1, ease: Sine.easeOut }, '-=.75')
           .to([f3ScreenTop], .75, { y: 95, ease: Elastic.easeOut.config(.3, .4), y: 98 }, '-=.5')
           .to([f3ScreenMiddle], .75, { y: 80, ease: Elastic.easeOut.config(.3, .4), y: 84 }, '-=0.75')
-          .to([f3ScreenTop, f3ScreenMiddle], .5, { y: 110, ease: Sine.easeOut, onComplete:function(){
+          .to([f3ScreenTop, f3ScreenMiddle], .5, { y: 110, ease: Sine.easeOut,
+          onStart:function() {
+            preloadImages([
+              './images/F4-H.png',
+              './images/F4-screen-bottom.png',
+              './images/F4-screen-middle.png',
+              './images/F4-screen-top.png',
+              './images/F4-screen-top2.png'],
+              document.querySelector('.js-frame-4'));
+          },
+          onComplete:function(){
             frame4();
           } }, '+=1')
       }
 
       function frame4() {
-        var frame4ImageUrls = [
-          './images/F4-H.png',
-          './images/F4-screen-bottom.png',
-          './images/F4-screen-middle.png',
-          './images/F4-screen-top.png',
-          './images/F4-screen-top2.png',
-        ];
-
-        var frame4Container = document.querySelector('.js-frame-4');
-        var frame4Images = Array.from(frame4Container.querySelectorAll('img'));
-        
-        for (var i = 0; i < frame4Images.length; i++) {
-          frame4Images[i].src = frame4ImageUrls[i];
-        }
-
         var f4ScreenTop2 = document.querySelector('.js-f4-screen-top2');
         var f4ScreenTop = document.querySelector('.js-f4-screen-top');
         var f4ScreenMiddle = document.querySelector('.js-f4-screen-middle');
@@ -372,23 +353,19 @@
           .to([f4ScreenMiddle], .75, { y: 80, ease: Elastic.easeOut.config(.3, .4), y: 84 }, '-=.5')
           .to([f4ScreenTop], .75, { y: 95, ease: Elastic.easeOut.config(.3, .4), y: 98 }, '-=.75')
           .to([f4ScreenTop2], .75, { y: 65, ease: Elastic.easeOut.config(.3, .4), y: 68 }, '-=.75')
-          .to([f4ScreenTop2, f4ScreenTop, f4ScreenMiddle], .5, { y: 110, ease: Sine.easeOut, onComplete:function(){
+          .to([f4ScreenTop2, f4ScreenTop, f4ScreenMiddle], .5, { y: 110, ease: Sine.easeOut,
+          onStart:function() {
+            preloadImages([
+              './images/endframe.png',
+              './images/screen-endframe.png'],
+              document.querySelector('.js-endframe'));
+          },
+          onComplete:function(){
             endframe();
           } }, '+=2')
       }
 
       function endframe() {
-        var frame5ImageUrls = [
-          './images/endframe.png',
-          './images/screen-endframe.png',
-        ];
-        var frame5Container = document.querySelector('.js-endframe');
-        var frame5Images = Array.from(frame5Container.querySelectorAll('img'));
-        
-        for (var i = 0; i < frame5Images.length; i++) {
-          frame5Images[i].src = frame5ImageUrls[i];
-        }
-
         var f4 = document.querySelector('.js-frame-4');
         var f5 = document.querySelector('.js-endframe');
 
@@ -399,6 +376,14 @@
           .to([f4], .75, { opacity: 0, ease: Sine.easeOut }, '+=0')
           .to([f5], .75, { opacity: 1, ease: Sine.easeOut }, '-=.75')
           .to([f5], .75, { opacity: 1, ease: Sine.easeOut }, '+=2')
+      }
+
+      function preloadImages(imageUrls, frameContainer) {
+        var frameImages = Array.from(frameContainer.querySelectorAll('img'));
+        
+        for (var i = 0; i < imageUrls.length; i++) {
+          frameImages[i].src = imageUrls[i];
+        }
       }
 
       function init() {
@@ -421,33 +406,7 @@
         }
       }
 
-
-      function preload() {
-        images = [
-          './images/logo.png',
-          './images/device-mask.png',
-          './images/F1-H.png',
-          './images/F1-SH.png',
-          './images/F1-screen-bottom.png',
-          './images/F1-screen-middle.png',
-          './images/F1-screen-top.png',
-        ];
-
-        for (var i = 0; i < images.length; i++) {
-          var imageObj = new Image();
-          imageObj.src = images[i];
-          imageObj.addEventListener("load", iLoad, false);
-        }
-
-      }
-      function iLoad() {
-        loadedImage++;
-        if (images.length == loadedImage) {
-          init();
-        }
-      }
-
-      preload();
+      init();
     });
   </script>
 
@@ -459,11 +418,11 @@
       <img class="logo" src="./images/logo.png" alt="">
       <img class="frame__phone" src="./images/device-mask.png" alt="">
       <div class="frame frame--1 js-frame-1">
-        <img class="frame__headline" src="./images/F1-H.png" alt="More dancing">
-        <img class="frame__subhead js-f1-subhead" src="./images/F1-SH.png" alt="300+ ad-free music channels">
-        <img class="frame__screen frame__screen--bottom" alt="" src="./images/F1-screen-bottom.png">
+        <img class="frame__headline" src="" alt="More dancing">
+        <img class="frame__subhead js-f1-subhead" src="" alt="300+ ad-free music channels">
+        <img class="frame__screen frame__screen--bottom" alt="" src="">
         <img class="frame__screen js-f1-screen-top" alt="./images/F1-screen-top.png" src="">
-        <img class="frame__screen js-f1-screen-middle" alt="" src="./images/F1-screen-middle.png">
+        <img class="frame__screen js-f1-screen-middle" alt="" src="">
 
       </div>
       <div class="frame frame--2 js-frame-2">
