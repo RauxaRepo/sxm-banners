@@ -245,14 +245,6 @@
       var bannerTL;
 
       function playFrames() {
-        preloadImages([
-          './images/F1-H.png',
-          './images/F1-SH.png',
-          './images/F1-screen-bottom.png',
-          './images/F1-screen-middle.png',
-          './images/F1-screen-top.png'],
-          document.querySelector('.js-frame-1'));
-
         var sh1 = document.querySelector('.js-f1-subhead');
         var f1ScreenTop = document.querySelector('.js-f1-screen-top');
         var f1ScreenMiddle = document.querySelector('.js-f1-screen-middle');
@@ -406,7 +398,32 @@
         }
       }
 
-      init();
+      function preload() {
+        images = [
+          './images/logo.png',
+          './images/device-mask.png',
+          './images/F1-H.png',
+          './images/F1-SH.png',
+          './images/F1-screen-bottom.png',
+          './images/F1-screen-middle.png',
+          './images/F1-screen-top.png'
+        ];
+
+        for (var i = 0; i < images.length; i++) {
+          var imageObj = new Image();
+          imageObj.src = images[i];
+          imageObj.addEventListener("load", iLoad, false);
+        }
+
+      }
+      function iLoad() {
+        loadedImage++;
+        if (images.length == loadedImage) {
+          init();
+        }
+      }
+
+      preload();
     });
   </script>
 
@@ -418,11 +435,11 @@
       <img class="logo" src="./images/logo.png" alt="">
       <img class="frame__phone" src="./images/device-mask.png" alt="">
       <div class="frame frame--1 js-frame-1">
-        <img class="frame__headline" src="" alt="More dancing">
-        <img class="frame__subhead js-f1-subhead" src="" alt="300+ ad-free music channels">
-        <img class="frame__screen frame__screen--bottom" alt="" src="">
-        <img class="frame__screen js-f1-screen-top" alt="./images/F1-screen-top.png" src="">
-        <img class="frame__screen js-f1-screen-middle" alt="" src="">
+        <img class="frame__headline" src="./images/F1-H.png" alt="More dancing">
+        <img class="frame__subhead js-f1-subhead" src="./images/F1-SH.png" alt="300+ ad-free music channels">
+        <img class="frame__screen frame__screen--bottom" alt="" src="./images/F1-screen-bottom.png">
+        <img class="frame__screen js-f1-screen-top" alt="" src="./images/F1-screen-top.png">
+        <img class="frame__screen js-f1-screen-middle" alt="" src="./images/F1-screen-middle.png">
 
       </div>
       <div class="frame frame--2 js-frame-2">
