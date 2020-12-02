@@ -256,7 +256,7 @@
       position: absolute;
       width: 90px;
       height: auto;
-      top: 107px;
+      top: 115px;
     }
 
     .frame--5 .frame__headline {
@@ -264,7 +264,7 @@
     }
 
     .frame--5 .frame__subhead {
-      height: 20px;
+      height: 26px;
     }
   </style>
   <script type="text/javascript" charset="utf-8">
@@ -291,16 +291,8 @@
 
         bannerTL
           .to(f1, 0, { opacity: 1})
-          .to([h1, more], .2, { opacity: 1, ease: Sine.easeOut }, '=.25')
-          .to([f1ScreenMiddle], .2, { opacity: 1, ease: Sine.easeOut }, '+=.2')
-          .to([f1ScreenMiddle, f1ScreenTop], .2, { y: 100, ease: Sine.easeOut }, '-=.2')
-          .to([f1ScreenTop], .2, { opacity: 1, ease: Sine.easeOut }, '+=.75')
-          .to([f1ScreenTop], .2, { y: 90, opacity: 1, ease: Sine.easeOut}, '-=.2')
-          // .to(screenContainer, 1, { ease: Bounce.easeOut, y: -10}, '-=1')
-          // .to(screenContainer, .25, {y: -5, ease: Sine.easeOut, yoyo: true, repeat: 1, delay: 0}, '-=1')
-          // .to(screenContainer, .25, {y: 0, ease: Sine.easeOut, yoyo: true, repeat: 1, delay: 0}, '-=.5')
-          .to([sh1], .2, { opacity: 1, ease: Sine.easeOut}, '-=0')
-          .to([f1ScreenTop, f1ScreenMiddle], .2, { y: 110, ease: Sine.easeOut,
+          .to([h1, more], .2, { opacity: 1, ease: Expo.out }, '=.25')
+          .to([f1ScreenMiddle], .2, { opacity: 1, ease: Expo.out,
             onStart:function() {
             preloadImages([
               './images/F2-H.png',
@@ -309,7 +301,16 @@
               './images/F2-screen-middle.png',
               './images/F2-screen-top.png'],
               document.querySelector('.js-frame-2'));
-            },
+            }
+            }, '+=.2')
+          .to([f1ScreenMiddle, f1ScreenTop], .2, { y: 100, ease: Expo.out }, '-=.2')
+          .to([f1ScreenTop], .2, { opacity: 1, ease: Expo.out }, '+=.75')
+          .to([f1ScreenTop], .2, { y: 90, opacity: 1, ease: Expo.out}, '-=.2')
+          // .to(screenContainer, 1, { ease: Bounce.easeOut, y: -10}, '-=1')
+          // .to(screenContainer, .25, {y: -5, ease: Expo.out, yoyo: true, repeat: 1, delay: 0}, '-=1')
+          // .to(screenContainer, .25, {y: 0, ease: Expo.out, yoyo: true, repeat: 1, delay: 0}, '-=.5')
+          .to([sh1], .2, { opacity: 1, ease: Expo.out}, '-=0')
+          .to([f1ScreenTop, f1ScreenMiddle], .2, { y: 110, ease: Expo.out,
             onComplete:function(){
             frame2();
             console.log(bannerTL.time());
@@ -326,17 +327,10 @@
         var h1 = document.querySelector('.js-f2-head');
 
         bannerTL
-          .to([f1], .2, { opacity: 0, ease: Sine.easeOut }, '-=0')
-          .to([f2], .2, { opacity: 1, ease: Sine.easeOut }, '-=.75')
-          .to([h1], .2, { opacity: 1, ease: Sine.easeOut }, '+=.2')
-          .to([f2ScreenMiddle], .2, { opacity: 1, ease: Sine.easeOut }, '+=.2')
-          .to([f2ScreenMiddle, f2ScreenTop], .2, { y: 100, ease: Sine.easeOut }, '-=.2')
-          .to([f2ScreenTop], .2, { opacity: 1, ease: Sine.easeOut }, '+=.75')
-          .to([f2ScreenTop], .2, { y: 90, opacity: 1, ease: Sine.easeOut}, '-=.2')
-          // .to(screenContainer, .25, {y: -5, ease: Sine.easeOut, yoyo: true, repeat: 1, delay: 0}, '-=1')
-          // .to(screenContainer, .25, {y: 0, ease: Sine.easeOut, yoyo: true, repeat: 1, delay: 0}, '-=.5')
-          .to([sh2], .2, { opacity: 1, ease: Sine.easeOut}, '-=0')
-          .to([f2ScreenTop, f2ScreenMiddle], .2, { y: 110, ease: Sine.easeOut,
+          .to([f1], .2, { opacity: 0, ease: Expo.out }, '-=0')
+          .to([f2], .2, { opacity: 1, ease: Expo.out }, '-=.75')
+          .to([h1], .2, { opacity: 1, ease: Expo.out }, '+=.2')
+          .to([f2ScreenMiddle], .2, { opacity: 1, ease: Expo.out,
             onStart:function() {
             preloadImages([
               './images/F3-H.png',
@@ -345,7 +339,15 @@
               './images/F3-screen-middle.png',
               './images/F3-screen-top.png'],
               document.querySelector('.js-frame-3'));
-            },
+            }
+          }, '+=.2')
+          .to([f2ScreenMiddle, f2ScreenTop], .2, { y: 100, ease: Expo.out }, '-=.2')
+          .to([f2ScreenTop], .2, { opacity: 1, ease: Expo.out }, '+=.75')
+          .to([f2ScreenTop], .2, { y: 90, opacity: 1, ease: Expo.out}, '-=.2')
+          // .to(screenContainer, .25, {y: -5, ease: Expo.out, yoyo: true, repeat: 1, delay: 0}, '-=1')
+          // .to(screenContainer, .25, {y: 0, ease: Expo.out, yoyo: true, repeat: 1, delay: 0}, '-=.5')
+          .to([sh2], .2, { opacity: 1, ease: Expo.out}, '-=0')
+          .to([f2ScreenTop, f2ScreenMiddle], .2, { y: 110, ease: Expo.out,
             onComplete:function(){
               frame3();
               console.log(bannerTL.time());
@@ -363,17 +365,10 @@
 
 
         bannerTL
-          .to([f2], .2, { opacity: 0, ease: Sine.easeOut }, '-=0')
-          .to([f3], .2, { opacity: 1, ease: Sine.easeOut }, '-=.75')
-          .to([h1], .2, { opacity: 1, ease: Sine.easeOut }, '+=.2')
-          .to([f3ScreenMiddle], .2, { opacity: 1, ease: Sine.easeOut }, '+=.2')
-          .to([f3ScreenMiddle, f3ScreenTop], .2, { y: 100, ease: Sine.easeOut }, '-=.2')
-          .to([f3ScreenTop], .2, { opacity: 1, ease: Sine.easeOut }, '+=.75')
-          .to([f3ScreenTop], .2, { y: 90, opacity: 1, ease: Sine.easeOut}, '-=.2')
-          // .to(screenContainer, .25, {y: -5, ease: Sine.easeOut, yoyo: true, repeat: 1, delay: 0}, '-=1')
-          // .to(screenContainer, .25, {y: 0, ease: Sine.easeOut, yoyo: true, repeat: 1, delay: 0}, '-=.5')
-          .to([sh3], .2, { opacity: 1, ease: Sine.easeOut}, '-=0')
-          .to([f3ScreenTop, f3ScreenMiddle], .2, { y: 110, ease: Sine.easeOut,
+          .to([f2], .2, { opacity: 0, ease: Expo.out }, '-=0')
+          .to([f3], .2, { opacity: 1, ease: Expo.out }, '-=.75')
+          .to([h1], .2, { opacity: 1, ease: Expo.out }, '+=.2')
+          .to([f3ScreenMiddle], .2, { opacity: 1, ease: Expo.out,
             onStart:function() {
             preloadImages([
               './images/F4-H.png',
@@ -383,7 +378,15 @@
               './images/F4-screen-top2.png'],
               document.querySelector('.js-frame-4'));
 
-            },
+          }
+          }, '+=.2')
+          .to([f3ScreenMiddle, f3ScreenTop], .2, { y: 100, ease: Expo.out }, '-=.2')
+          .to([f3ScreenTop], .2, { opacity: 1, ease: Expo.out }, '+=.75')
+          .to([f3ScreenTop], .2, { y: 90, opacity: 1, ease: Expo.out}, '-=.2')
+          // .to(screenContainer, .25, {y: -5, ease: Expo.out, yoyo: true, repeat: 1, delay: 0}, '-=1')
+          // .to(screenContainer, .25, {y: 0, ease: Expo.out, yoyo: true, repeat: 1, delay: 0}, '-=.5')
+          .to([sh3], .2, { opacity: 1, ease: Expo.out}, '-=0')
+          .to([f3ScreenTop, f3ScreenMiddle], .2, { y: 110, ease: Expo.out,
             onComplete:function(){
               frame4();
               console.log(bannerTL.time());
@@ -401,19 +404,10 @@
         var more = document.querySelector('.js-frame-more');
 
           bannerTL
-          .to([f3, more], .2, { opacity: 0, ease: Sine.easeOut }, '-=0')
-          .to([f4], .2, { opacity: 1, ease: Sine.easeOut }, '-=.75')
-          .to([h1], .2, { opacity: 1, ease: Sine.easeOut }, '+=.2')
-          .to([f4ScreenMiddle], .2, { opacity: 1, ease: Sine.easeOut }, '+=.2')
-          .to([f4ScreenMiddle, f4ScreenTop, f4ScreenTop2], .2, { y: 100, ease: Sine.easeOut }, '-=.2')
-          .to([f4ScreenTop], .2, { opacity: 1, ease: Sine.easeOut }, '+=.75')
-          .to([f4ScreenTop, f4ScreenTop2], .2, { y: 90, ease: Sine.easeOut}, '-=.2')
-          .to([f4ScreenTop2], .2, { opacity: 1, ease: Sine.easeOut }, '+=.75')
-          .to([f4ScreenTop2], .2, { y: 80, opacity: 1, ease: Sine.easeOut}, '-=.2')
-          .to([f4ScreenTop2], .2, { y: 80, opacity: 1, ease: Sine.easeOut}, '+=.2')
-          // .to(screenContainer, .25, {y: -5, ease: Sine.easeOut, yoyo: true, repeat: 1, delay: 0}, '-=1')
-          // .to(screenContainer, .25, {y: 0, ease: Sine.easeOut, yoyo: true, repeat: 1, delay: 0}, '-=.5')
-          .to([f4ScreenTop, f4ScreenMiddle, f4ScreenTop2], .2, { y: 110, ease: Sine.easeOut,
+          .to([f3, more], .2, { opacity: 0, ease: Expo.out }, '-=0')
+          .to([f4], .2, { opacity: 1, ease: Expo.out }, '-=.75')
+          .to([h1], .2, { opacity: 1, ease: Expo.out }, '+=.2')
+          .to([f4ScreenMiddle], .2, { opacity: 1, ease: Expo.out,
             onStart:function() {
             preloadImages([
               './images/endframe-h.png',
@@ -421,7 +415,17 @@
               './images/screen-endframe.png',
               './images/cta.png'],
               document.querySelector('.js-endframe'));
-            },
+            }
+          }, '+=.2')
+          .to([f4ScreenMiddle, f4ScreenTop, f4ScreenTop2], .2, { y: 100, ease: Expo.out }, '-=.2')
+          .to([f4ScreenTop], .2, { opacity: 1, ease: Expo.out }, '+=.75')
+          .to([f4ScreenTop, f4ScreenTop2], .2, { y: 90, ease: Expo.out}, '-=.2')
+          .to([f4ScreenTop2], .2, { opacity: 1, ease: Expo.out }, '+=.75')
+          .to([f4ScreenTop2], .2, { y: 80, opacity: 1, ease: Expo.out}, '-=.2')
+          .to([f4ScreenTop2], .2, { y: 80, opacity: 1, ease: Expo.out}, '+=.2')
+          // .to(screenContainer, .25, {y: -5, ease: Expo.out, yoyo: true, repeat: 1, delay: 0}, '-=1')
+          // .to(screenContainer, .25, {y: 0, ease: Expo.out, yoyo: true, repeat: 1, delay: 0}, '-=.5')
+          .to([f4ScreenTop, f4ScreenMiddle, f4ScreenTop2], .2, { y: 110, ease: Expo.out,
             onComplete:function(){
               endframe();
               console.log(bannerTL.time());
@@ -437,11 +441,11 @@
         var shEnd = document.querySelector('.js-endframe-subhead');
 
         bannerTL
-          .to([f4], .75, { opacity: 0, ease: Sine.easeOut }, '+=0')
-          .to([f5], .75, { opacity: 1, ease: Sine.easeOut }, '-=.75')
-          .to([h1], .2, { opacity: 1, ease: Sine.easeOut }, '+=.2')
-          .to([shEnd], .2, { opacity: 1, ease: Sine.easeOut}, '+=.2')
-          .to([cta], .2, { x: 21, ease: Sine.easeOut }, '+=.2')
+          .to([f4], .75, { opacity: 0, ease: Expo.out }, '+=0')
+          .to([f5], .75, { opacity: 1, ease: Expo.out }, '-=.75')
+          .to([h1], .2, { opacity: 1, ease: Expo.out }, '+=.2')
+          .to([shEnd], .2, { opacity: 1, ease: Expo.out}, '+=.2')
+          .to([cta], .2, { x: 21, ease: Expo.out }, '+=.2')
       }
 
       function preloadImages(imageUrls, frameContainer) {
