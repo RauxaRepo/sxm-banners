@@ -425,24 +425,11 @@
 
           .to(f3_head, .6, { opacity: 1, ease: Sine.easeOut }, '+=0')
           .from(f3_bg, .5, { left: '+=100%', ease: Sine.easeOut }, '-=.3')
-          .to(f2_dash_logo, .5, { bottom:'+=125px', ease: Sine.easeOut }, '-=.5')
-          .to(f2_dash_name, .5, { bottom:'+=125px', ease: Sine.easeOut }, '-=.5')
-          .to(f2_dash_num, .5, { opacity: 0, ease: Sine.easeOut }, '-=.5')
-          .from(f3_dash_logo, .5, { bottom:'-=125px', ease: Sine.easeOut }, '-=.5')
-          .from(f3_dash_name, .5, { bottom:'-=125px', ease: Sine.easeOut }, '-=.5')
-          .to(f3_dash_num, .5, { opacity: 1, ease: Sine.easeOut }, '-=.5')
-          .from([f3_dash_logo,f3_dash_name], .2, { autoAlpha: 0, ease: Sine.easeOut }, '-=.2')
           .to(f3_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
 
           .to(f4_head, .6, { opacity: 1, ease: Sine.easeOut }, '+=0')
           .from(f4_bg, .5, { left: '+=100%', ease: Sine.easeOut }, '-=.3')
-          .to(f3_dash_logo, .5, { bottom:'+=125px', ease: Sine.easeOut }, '-=.5')
-          .to(f3_dash_name, .5, { bottom:'+=125px', ease: Sine.easeOut }, '-=.5')
-          .to(f3_dash_num, .5, { opacity: 0, ease: Sine.easeOut }, '-=.5')
-          .from(f4_dash_logo, .5, { bottom:'-=125px', ease: Sine.easeOut }, '-=.5')
-          .from(f4_dash_name, .5, { bottom:'-=125px', ease: Sine.easeOut }, '-=.5')
-          .to(f4_dash_num, .5, { opacity: 1, ease: Sine.easeOut }, '-=.5')
-          .from([f4_dash_logo,f4_dash_name], .2, { autoAlpha: 0, ease: Sine.easeOut }, '-=.2')
+
 
           .from(f5_bg, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
           .from(f5_copy_1, .6, { autoAlpha: 0, ease: Sine.easeOut }, '-=.1')
@@ -482,15 +469,9 @@
         //
         document.querySelector('.f3-head').setAttribute('src','./images/SXM_Concept_3-F3-text.png');
         document.querySelector('.f3-bg').setAttribute('src','./images/SXM_Concept_3-F3-bg.png');
-        document.querySelector('.f3-dash-logo').setAttribute('src','./images/SXM_Concept_3-F3-ch-logo.png');
-        document.querySelector('.f3-dash-name').setAttribute('src','./images/SXM_Concept_3-F3-ch-name.png');
-        document.querySelector('.f3-dash-num').setAttribute('src','./images/SXM_Concept_3-F3-ch-num.png');
         //
         document.querySelector('.f4-head').setAttribute('src','./images/SXM_Concept_3-F4-text.png');
         document.querySelector('.f4-bg').setAttribute('src','./images/SXM_Concept_3-F4-bg.png');
-        document.querySelector('.f4-dash-logo').setAttribute('src','./images/SXM_Concept_3-F4-ch-logo.png');
-        document.querySelector('.f4-dash-name').setAttribute('src','./images/SXM_Concept_3-F4-ch-name.png');
-        document.querySelector('.f4-dash-num').setAttribute('src','./images/SXM_Concept_3-F4-ch-num.png');
         //
         document.querySelector('.f5-head').setAttribute('src','./images/SXM_Concept_3-F5-text.png');
         document.querySelector('.f5-copy-1').setAttribute('src','./images/SXM_Concept_3-F5-text-2.png');
@@ -535,21 +516,10 @@
 
           './images/SXM_Concept_3-F3-text.png',
           './images/SXM_Concept_3-F3-bg.png',
-          './images/SXM_Concept_3-F3-ch-logo.png',
-          './images/SXM_Concept_3-F3-ch-name.png',
-          './images/SXM_Concept_3-F3-ch-num.png',
-          './images/SXM_Concept_3-F3-ch-logo.png',
-          './images/SXM_Concept_3-F3-ch-name.png',
-          './images/SXM_Concept_3-F3-ch-num.png',
+
 
           './images/SXM_Concept_3-F4-text.png',
           './images/SXM_Concept_3-F4-bg.png',
-          './images/SXM_Concept_3-F4-ch-logo.png',
-          './images/SXM_Concept_3-F4-ch-name.png',
-          './images/SXM_Concept_3-F4-ch-num.png',
-          './images/SXM_Concept_3-F4-ch-logo.png',
-          './images/SXM_Concept_3-F4-ch-name.png',
-          './images/SXM_Concept_3-F4-ch-num.png',
 
           './images/SXM_Concept_3-F5-text.png',
           './images/SXM_Concept_3-F5-text-2.png',
@@ -584,28 +554,10 @@
     <div class="banner-content">
 
 
-      <div class="dash-wrapper">
 
-        <div class="dash-logos">
-          <img class="f2-dash-logo" src="" alt="">
-          <img class="f3-dash-logo" src="" alt="">
-          <img class="f4-dash-logo" src="" alt="">
-        </div>
-
-        <div class="dash-names">
-          <img class="f2-dash-name" src="" alt="">
-          <img class="f3-dash-name" src="" alt="">
-          <img class="f4-dash-name" src="" alt="">
-        </div>
-
-        <img class="dash-nums f2-dash-num" src="" alt="">
-        <img class="dash-nums f3-dash-num" src="" alt="">
-        <img class="dash-nums f4-dash-num" src="" alt="">
-
-      </div>
 
       <img class="frame-img logo" alt="" src="">
-      <img class="frame-img f2-dash" src="" alt="">
+      
 
 
 
@@ -618,8 +570,26 @@
 
       <div class="frame frame--2 js-frame-2">
 
+        <div class="dash-wrapper">
+
+          <div class="dash-logos">
+            <img class="f2-dash-logo" src="" alt="">
+          </div>
+  
+          <div class="dash-names">
+            <img class="f2-dash-name" src="" alt="">
+          </div>
+  
+          <img class="dash-nums f2-dash-num" src="" alt="">
+  
+        </div>
+
         <img class="frame-img f2-head" src="" alt="">
         <img class="frame-img f2-bg" src="" alt="">
+        <img class="frame-img f2-dash" src="" alt="">
+
+
+
         
 
       </div>
