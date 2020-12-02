@@ -87,7 +87,7 @@
       position: absolute;
       width: 298px;
       height: 248px;
-      border: 1px solid #000000;
+      border: 1px solid #342696;
       pointer-events: none;
       z-index: 6;
       top: 0px;
@@ -106,28 +106,24 @@
 
 
     .frame {
-      position: relative;
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: #342696;
+      /* background-color: #342696; */
       /* transform: translateX(300px); */
     }
 
     .frame__headline {
       position: absolute;
-      height: 25px;
-      width: auto;
+      height: 100%;
+      width: 100%;
       left: 0;
       right: 0;
-      margin: 0 auto;
-      top: 15px;
+      top: 0;
+      bottom: 0;
       opacity: 0;
-    }
-
-    .frame__headline:first-of-type {
-      height: 20px;
     }
 
     .frame__background, .frame__slide {
@@ -159,120 +155,343 @@
       bottom: 0;
       margin: 0 auto;
       z-index: 1;
+      transform: translateY(100%);
     }
 
-    .frame__screen {
-      width: 114px;
+    .frame-screen {
+      width: 100%;
       height: auto;
+      position: absolute;
+      transform: translateX(100%);
+    }
+
+    .device-screens {
+      position: absolute;
+      transform: translateY(100%);
+      left: 0;
+      z-index: 5;
+      right: 0;
+      width: 115px;
+      height: 250px;
+      margin: 0 auto;
+      overflow: hidden;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+
+    .frame-screen--1 {
+      transform: translateY(0);
+    }
+
+    .frame__thumb {
+      position: absolute;
+      width: 77px;
+      height: auto;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      transform: translateY(122px);
+      z-index: 5;
+      opacity: 0;
+    }
+
+    .cta {
       position: absolute;
       left: 0;
       right: 0;
-      bottom: 0;
       margin: 0 auto;
-      z-index: 1;
+      width: 92px;
+      height: auto;
+      transform: translateY(150px);
       opacity: 0;
+    }
+
+    .endframe-phone {
+      width: 87px;
+      height: auto;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      opacity: 0;
+    }
+
+
+    .frame--3 .frame__thumb {
+      transform: translateY(123px);
     }
     
   </style>
   <script type="text/javascript" charset="utf-8">
     document.addEventListener("DOMContentLoaded", function (e) {
-      // variables
       var loadedImage = 0;
       var images = [];
       var exit = document.querySelector('.exit');
-      // var legalExit = document.querySelector('.legal-exit');
       var bannerContent = document.querySelector('.banner-content');
-
+      var ctaBtn = document.querySelector('.cta-btn');
       var bannerConfig = {
         width: 300,
         height: 250
       }
-
-
-      // list all animating elements
-      // var ctaBtn = document.querySelector('.cta-btn');
-      // var logo = document.querySelector('.js-logo');
-      // var circleInner = document.querySelector('.js-circle-inner');
-      // var frame1 = document.querySelector('.js-frame-1');
-      // var frame2 = document.querySelector('.js-frame-2');
-      // var slide1 = document.querySelector('.js-frame-slide-1');
-      // var slide2 = document.querySelector('.js-frame-slide-2');
-      // var slide3 = document.querySelector('.js-frame-slide-3');
-
-      var h1 = document.querySelector('.js-headline-1');
-      var h2 = document.querySelector('.js-headline-2');
-      var h3 = document.querySelector('.js-headline-3');
-      var h4 = document.querySelector('.js-headline-4');
-      var s1 = document.querySelector('.js-screen-1');
-      var s2 = document.querySelector('.js-screen-2');
-      var s3 = document.querySelector('.js-screen-3');
-      var s4 = document.querySelector('.js-screen-4');
-
-
-
-
-
-
-      // timelines
       var bannerTL;
 
-      function bannerAnimation() {
+      function playFrames() {
+        var h1 = document.querySelector('.js-f1-head');
+        var f1 = document.querySelector('.js-frame-1');
+        var device = document.querySelector('.js-device-mask');
+        var deviceScreenContainer = document.querySelector('.js-device-screens');
+        var thumbCenter = document.querySelector('.js-f1-thumb');
+        var thumbLeft = document.querySelector('.js-f1-thumb-left');
+        var thumbRight = document.querySelector('.js-f1-thumb-right');
+        var thumbLeft2 = document.querySelector('.js-f1-thumb-left2');
+        var thumbRight2 = document.querySelector('.js-f1-thumb-right2');
+        var f1screen = document.querySelector('.js-f1-screen');
 
+        var f2screen = document.querySelector('.js-f2-screen');
+        var f2h1 = document.querySelector('.js-f2-head');
+        var f2thumbCenter = document.querySelector('.js-f2-thumb');
+        var f2thumbLeft = document.querySelector('.js-f2-thumb-left');
+        var f2thumbRight = document.querySelector('.js-f2-thumb-right');
+        var f2thumbLeft2 = document.querySelector('.js-f2-thumb-left2');
+        var f2thumbRight2 = document.querySelector('.js-f2-thumb-right2');
+
+        var f3screen = document.querySelector('.js-f3-screen');
+        var f3h1 = document.querySelector('.js-f3-head');
+        var f3thumbCenter = document.querySelector('.js-f3-thumb');
+        var f3thumbLeft = document.querySelector('.js-f3-thumb-left');
+        var f3thumbRight = document.querySelector('.js-f3-thumb-right');
+        var f3thumbLeft2 = document.querySelector('.js-f3-thumb-left2');
+        var f3thumbRight2 = document.querySelector('.js-f3-thumb-right2');
+
+        var f4screen = document.querySelector('.js-f4-screen');
+        var f4h1 = document.querySelector('.js-f4-head');
+
+
+        var efh1 = document.querySelector('.js-endframe-head1');
+        var efh2 = document.querySelector('.js-endframe-head2');
+        var efh3 = document.querySelector('.js-endframe-head3');
+        var cta = document.querySelector('.js-cta');
+        var efpl = document.querySelector('.js-efp-left');
+        var efpr = document.querySelector('.js-efp-right');
+
+
+        bannerTL
+          .to(f1, 0, { opacity: 1})
+          .to([thumbCenter, thumbLeft, thumbRight, thumbLeft2, thumbRight2], 0, { y: 300 })
+          .to([h1, thumbCenter], .2, { opacity: 1, ease: Expo.out }, '=.25')
+          .to([device], .4, { y: 0, ease: Expo.out }, '-=.25')
+          .to([deviceScreenContainer], .4, { y: 74, ease: Expo.out }, '-=.4')
+          .to([thumbCenter, thumbLeft, thumbRight, thumbLeft2, thumbRight2], .4, { y: 123, ease: Expo.out }, '-=.4')
+          .to([thumbLeft, thumbRight, thumbLeft2, thumbRight2], .2, { opacity: 1, ease: Expo.out }, '+=.4')
+          .to([thumbLeft], .2, { x: -75, ease: Expo.out }, '-=.2')
+          .to([thumbRight], .2, { x: 75, ease: Expo.out }, '-=.2')
+          .to([thumbLeft2], .2, { x: -150, ease: Expo.out }, '-=.2')
+          .to([thumbRight2], .2, { x: 150, ease: Expo.out}, '-=.2')
+          // frame 2 start
+          .to([f1screen], .2, { x: -150, ease: Expo.out}, '+=1.2')
+          .to([thumbCenter, thumbLeft, thumbRight, thumbLeft2, thumbRight2], .2, { x: -200, opacity: 0, ease: Expo.out }, '-=.2')
+          .to([f2screen], .2, { x: 0, ease: Expo.out}, '-=.2')
+          .to([h1], .2, { opacity: 0, ease: Expo.out}, '-=.2')
+          .to([f2h1], .2, { opacity: 1, ease: Expo.out}, '-=.1')
+          .to(f2thumbCenter, .2, {opacity: 1}, '+=.9')
+          .to([f2thumbLeft, f2thumbRight, f2thumbLeft2, f2thumbRight2], .2, { opacity: 1, ease: Expo.out}, '+=0')
+          .to([f2thumbLeft], .2, { x: -75, ease: Expo.out }, '-=.2')
+          .to([f2thumbRight], .2, { x: 75, ease: Expo.out }, '-=.2')
+          .to([f2thumbLeft2], .2, { x: -150, ease: Expo.out }, '-=.2')
+          .to([f2thumbRight2], .2, { x: 150, ease: Expo.out}, '-=.2')
+          // frame 3 start
+          .to([f2screen], .2, { x: -150, ease: Expo.out}, '+=1.2')
+          .to(f2thumbCenter, 0, {opacity: 0}, '-=.2')
+          .to([f2thumbCenter, f2thumbLeft, f2thumbRight, f2thumbLeft2, f2thumbRight2], .2, { x: -200, opacity: 0, ease: Expo.out }, '-=.2')
+          .to([f3screen], .2, { x: 0, ease: Expo.out}, '-=.2')
+          .to([f2h1], .2, { opacity: 0, ease: Expo.out}, '-=.2')
+          .to([f3h1], .2, { opacity: 1, ease: Expo.out}, '-=.1')
+          .to(f3thumbCenter, .2, {opacity: 1}, '+=.9')
+          .to([f3thumbLeft, f3thumbRight, f3thumbLeft2, f3thumbRight2], .2, { opacity: 1, ease: Expo.out}, '+=0')
+          .to([f3thumbLeft], .2, { x: -75, ease: Expo.out }, '-=.2')
+          .to([f3thumbRight], .2, { x: 75, ease: Expo.out }, '-=.2')
+          .to([f3thumbLeft2], .2, { x: -150, ease: Expo.out }, '-=.2')
+          .to([f3thumbRight2], .2, { x: 150, ease: Expo.out}, '-=.2')
+          // frame 4 start
+          .to([f3screen], .2, { x: -150, ease: Expo.out}, '+=1.2')
+          .to(f3thumbCenter, 0, {opacity: 0}, '-=.2')
+          .to([f3thumbCenter, f3thumbLeft, f3thumbRight, f3thumbLeft2, f3thumbRight2], .2, { x: -200, opacity: 0, ease: Expo.out }, '-=.2')
+          .to([f4screen], .2, { x: 0, ease: Expo.out}, '-=.2')
+          .to([f3h1], .2, { opacity: 0, ease: Expo.out}, '-=.2')
+          .to([f4h1], .2, { opacity: 1, ease: Expo.out}, '-=.1')
+
+          // endframe
+          .to([device], .4, { y: 19, width: 100, ease: Expo.out }, '+=1.2')
+          .to([deviceScreenContainer], .4, { y: 132, width: 88, ease: Expo.out }, '-=.4')
+          .to([f4h1], .2, { opacity: 0, ease: Expo.out}, '-=.2')
+          .to([efpl, efpr, cta], 0, { opacity: 1, ease: Expo.out}, '-=.1')
+          .to([efpl], .4, { x: -55, ease: Expo.out}, '-=.1')
+          .to([efpr], .4, { x: 55, ease: Expo.out}, '-=.4')
+          .to([efh1], .2, { opacity: 1, ease: Expo.out}, '-=.1')
+          .to([efh2], .2, { opacity: 1, ease: Expo.out}, '+=0')
+          .to([efh3], .2, { opacity: 1, ease: Expo.out}, '+=0')
+          .to([cta], .2, { y: 89, ease: Expo.out,
+          onComplete: function() {
+            console.log(bannerTL.time())
+          }}, '+=0')
+      }
+
+      // function frame2() {
+      //   var h1 = document.querySelector('.js-f2-head');
+      //   var f1 = document.querySelector('.js-frame-1');
+      //   var f2 = document.querySelector('.js-frame-2');
+      //   // var deviceScreenContainer = document.querySelector('.js-device-screens');
+      //   var f1screen = document.querySelector('.js-f1-screen');
+      //   var f2screen = document.querySelector('.js-f1-screen')
+      //   var thumbCenter = document.querySelector('.js-f2-thumb');
+      //   var thumbLeft = document.querySelector('.js-f2-thumb-left');
+      //   var thumbRight = document.querySelector('.js-f2-thumb-right');
+      //   var thumbLeft2 = document.querySelector('.js-f2-thumb-left2');
+      //   var thumbRight2 = document.querySelector('.js-f2-thumb-right2');
+
+      //   bannerTL
+      //     .to([f1], .2, { opacity: 0, ease: Expo.out }, '-=0')
+      //     .to([f2], .2, { opacity: 1, ease: Expo.out }, '-=.75')
+      //     // .to([h1, thumbCenter], .2, { opacity: 1, ease: Expo.out }, '=.25')
+      //     // // .to([device], .4, { y: 0, ease: Expo.out }, '-=.25')
+      //     // // .to([deviceScreenContainer], .4, { y: 74, ease: Expo.out }, '-=.4')
+      //     // .to([thumbCenter, thumbLeft, thumbRight, thumbLeft2, thumbRight2], .4, { y: 123, ease: Expo.out }, '-=.4')
+      //     // .to([thumbLeft, thumbRight, thumbLeft2, thumbRight2], .2, { opacity: 1, ease: Expo.out }, '+=.4')
+      //     // .to([thumbLeft], .2, { x: -75, ease: Expo.out }, '-=.2')
+      //     // .to([thumbRight], .2, { x: 75, ease: Expo.out }, '-=.2')
+      //     // .to([thumbLeft2], .2, { x: -150, ease: Expo.out }, '-=.2')
+      //     // .to([thumbRight2], .2, { x: 150, ease: Expo.out, 
+      //     // onComplete: function(){
+      //     //   console.log(bannerTL.time());
+      //     // } }, '-=.2')
+      // }
+
+      // function frame3() {
+      //   var sh3 = document.querySelector('.js-f3-subhead');
+      //   var f3ScreenTop = document.querySelector('.js-f3-screen-top');
+      //   var f3ScreenMiddle = document.querySelector('.js-f3-screen-middle');
+      //   var f2 = document.querySelector('.js-frame-2');
+      //   var f3 = document.querySelector('.js-frame-3');
+      //   var h1 = document.querySelector('.js-f3-head');
+
+
+      //   bannerTL
+      //     .to([f2], .2, { opacity: 0, ease: Expo.out }, '-=0')
+      //     .to([f3], .2, { opacity: 1, ease: Expo.out }, '-=.75')
+      //     .to([h1], .2, { opacity: 1, ease: Expo.out }, '+=.2')
+      //     .to([f3ScreenMiddle], .2, { opacity: 1, ease: Expo.out }, '+=.2')
+      //     .to([f3ScreenMiddle, f3ScreenTop], .2, { y: 100, ease: Expo.out }, '-=.2')
+      //     .to([f3ScreenTop], .2, { opacity: 1, ease: Expo.out }, '+=.75')
+      //     .to([f3ScreenTop], .2, { y: 90, opacity: 1, ease: Expo.out}, '-=.2')
+      //     // .to(screenContainer, .25, {y: -5, ease: Expo.out, yoyo: true, repeat: 1, delay: 0}, '-=1')
+      //     // .to(screenContainer, .25, {y: 0, ease: Expo.out, yoyo: true, repeat: 1, delay: 0}, '-=.5')
+      //     .to([sh3], .2, { opacity: 1, ease: Expo.out}, '-=0')
+      //     .to([f3ScreenTop, f3ScreenMiddle], .2, { y: 110, ease: Expo.out,
+      //       onStart:function() {
+      //       preloadImages([
+      //         './images/F4-H.png',
+      //         './images/F4-screen-bottom.png',
+      //         './images/F4-screen-middle.png',
+      //         './images/F4-screen-top.png',
+      //         './images/F4-screen-top2.png'],
+      //         document.querySelector('.js-frame-4'));
+
+      //       },
+      //       onComplete:function(){
+      //         frame4();
+      //         console.log(bannerTL.time());
+      //         }
+      //       }, '+=.8')
+      // }
+
+      // function frame4() {
+      //   var f4ScreenTop2 = document.querySelector('.js-f4-screen-top2');
+      //   var f4ScreenTop = document.querySelector('.js-f4-screen-top');
+      //   var f4ScreenMiddle = document.querySelector('.js-f4-screen-middle');
+      //   var f3 = document.querySelector('.js-frame-3');
+      //   var f4 = document.querySelector('.js-frame-4');
+      //   var h1 = document.querySelector('.js-f4-head');
+      //   var more = document.querySelector('.js-frame-more');
+
+      //     bannerTL
+      //     .to([f3, more], .2, { opacity: 0, ease: Expo.out }, '-=0')
+      //     .to([f4], .2, { opacity: 1, ease: Expo.out }, '-=.75')
+      //     .to([h1], .2, { opacity: 1, ease: Expo.out }, '+=.2')
+      //     .to([f4ScreenMiddle], .2, { opacity: 1, ease: Expo.out }, '+=.2')
+      //     .to([f4ScreenMiddle, f4ScreenTop, f4ScreenTop2], .2, { y: 100, ease: Expo.out }, '-=.2')
+      //     .to([f4ScreenTop], .2, { opacity: 1, ease: Expo.out }, '+=.75')
+      //     .to([f4ScreenTop, f4ScreenTop2], .2, { y: 90, ease: Expo.out}, '-=.2')
+      //     .to([f4ScreenTop2], .2, { opacity: 1, ease: Expo.out }, '+=.75')
+      //     .to([f4ScreenTop2], .2, { y: 80, opacity: 1, ease: Expo.out}, '-=.2')
+      //     .to([f4ScreenTop2], .2, { y: 80, opacity: 1, ease: Expo.out}, '+=.2')
+      //     // .to(screenContainer, .25, {y: -5, ease: Expo.out, yoyo: true, repeat: 1, delay: 0}, '-=1')
+      //     // .to(screenContainer, .25, {y: 0, ease: Expo.out, yoyo: true, repeat: 1, delay: 0}, '-=.5')
+      //     .to([f4ScreenTop, f4ScreenMiddle, f4ScreenTop2], .2, { y: 110, ease: Expo.out,
+      //       onStart:function() {
+      //       preloadImages([
+      //         './images/endframe-h.png',
+      //         './images/endframe-sh.png',
+      //         './images/screen-endframe.png',
+      //         './images/cta.png'],
+      //         document.querySelector('.js-endframe'));
+      //       },
+      //       onComplete:function(){
+      //         endframe();
+      //         console.log(bannerTL.time());
+      //         }
+      //       }, '+=.8')
+      // }
+
+      // function endframe() {
+      //   var f4 = document.querySelector('.js-frame-4');
+      //   var f5 = document.querySelector('.js-endframe');
+      //   var cta = document.querySelector('.js-cta');
+      //   var h1 = document.querySelector('.js-endframe-head');
+      //   var shEnd = document.querySelector('.js-endframe-subhead');
+
+      //   bannerTL
+      //     .to([f4], .75, { opacity: 0, ease: Expo.out }, '+=0')
+      //     .to([f5], .75, { opacity: 1, ease: Expo.out }, '-=.75')
+      //     .to([h1], .2, { opacity: 1, ease: Expo.out }, '+=.2')
+      //     .to([shEnd], .2, { opacity: 1, ease: Expo.out}, '+=.2')
+      //     .to([cta], .2, { x: 21, ease: Expo.out }, '+=.2')
+      // }
+
+      function preloadImages(imageUrls, frameContainer) {
+        var frameImages = Array.from(frameContainer.querySelectorAll('img'));
+        
+        for (var i = 0; i < imageUrls.length; i++) {
+          frameImages[i].src = imageUrls[i];
+        }
+      }
+
+      function init() {
+        bannerContent.classList.add('banner-content--active');
 
         bannerTL = new TimelineMax({ paused: false });
-        bannerTL
-          // frame slide RTL
-          .to([h1, s1], 0, { opacity: 1, ease: Sine.easeOut }, '0')
-          .to([h1, s1], .25, { opacity: 0, ease: Sine.easeOut }, '+=2')
-          .to([h2, s2], .25, { opacity: 1, ease: Sine.easeOut }, '-=0')
-          .to([h2, s2], .25, { opacity: 0, ease: Sine.easeOut }, '+=2')
-          .to([h3, s3], .25, { opacity: 1, ease: Sine.easeOut }, '-=0')
-          .to([h3, s3], .25, { opacity: 0, ease: Sine.easeOut }, '+=2')
-          .to([h4, s4], .25, { opacity: 1, ease: Sine.easeOut }, '-=0')
-          // // frame 1 slide 1
-          // .to(slide1, 0, { opacity: 1, ease: Sine.easeOut }, '-=1')
-          // .to(slide1, .5, { opacity: 0, ease: Sine.easeOut }, '+=2')
-          // .to(circleInner, .25, { css:{scaleX: 1.2, scaleY: 1.2}, ease: Sine.easeOut }, '-=.5')
-          // .to(circleInner, .25, { css:{scaleX: 1, scaleY: 1}, ease: Sine.easeOut }, '-=0')
-          // // frame 1 slide 2
-          // .to(slide2, .5, { opacity: 1, ease: Sine.easeOut }, '-=.25')
-          // .to(slide2, .5, { opacity: 0, ease: Sine.easeOut }, '+=2')
-          // .to(circleInner, .25, { css:{scaleX: 1.2, scaleY: 1.2}, ease: Sine.easeOut }, '-=.5')
-          // .to(circleInner, .25, { css:{scaleX: 1, scaleY: 1}, ease: Sine.easeOut }, '-=0')
-          // // frame 1 slide 3
-          // .to(slide3, .5, { opacity: 1, ease: Sine.easeOut }, '-=.25')
-          // .to(slide3, .5, { opacity: 1, ease: Sine.easeOut }, '+=2')
-          // // frame 2 endframe
-          // .to(logo, .5, { x: '97', y: '10', ease: Sine.easeOut }, '-=.5')
-          // .to(frame1, .5, { x: '-300', ease: Sine.easeOut }, '-=.5')
-          // .to(frame2, .5, { x: '0', ease: Sine.easeOut }, '-=.5')
+        playFrames();
 
         // setTimeout(function () {
         //   bannerTL.pause();
         //   console.log('pausing');
         // }, 15000)
-
-        function ctaOnHover() {
-          ctaBtn.classList.toggle('hovered');
-        }
-
-        exit.addEventListener('mouseenter', ctaOnHover);
-        exit.addEventListener('mouseout', ctaOnHover);
       }
+
+      // function ctaOnHover(e) {
+      //   if (e.type == 'mouseenter') {
+      //     ctaBtn.classList.add('hovered');
+      //   } else {
+      //     ctaBtn.classList.remove('hovered');
+      //   }
+      // }
 
       function preload() {
         images = [
           './images/logo.png',
           './images/device-mask.png',
           './images/F1-H.png',
-          './images/F2-H.png',
-          './images/F3-H.png',
-          './images/F4-H.png',
-          './images/screen-1.png',
-          './images/screen-2.png',
-          './images/screen-3.png',
-          './images/screen-4.png',
-
         ];
 
         for (var i = 0; i < images.length; i++) {
@@ -289,13 +508,6 @@
         }
       }
 
-      function init() {
-
-        bannerContent.classList.add('banner-content--active');
-        bannerAnimation();
-
-      }
-
       preload();
     });
   </script>
@@ -307,25 +519,49 @@
     <div class="banner-content">
       <img class="logo" src="./images/logo.png" alt="">
       <img class="device-mask js-device-mask" src="./images/device-mask.png" alt="">
+      <div class="device-screens js-device-screens">
+        <img class="frame-screen frame-screen--1 js-f1-screen" src="./images/F1-screen.png" alt="">
+        <img class="frame-screen frame-screen--2 js-f2-screen" src="./images/F2-screen.png" alt="">
+        <img class="frame-screen frame-screen--3 js-f3-screen" src="./images/F3-screen.png" alt="">
+        <img class="frame-screen frame-screen--4 js-f4-screen" src="./images/F4-screen.png" alt="">
+      </div>
       <div class="frame frame--1 js-frame-1">
-        <img class="frame__headline js-headline-1" src="./images/F1-H.png" alt="Music that moves">
-        <img class="frame__headline js-headline-2" src="./images/F2-H.png" alt="Comedy that laughs">
-        <img class="frame__headline js-headline-3" src="./images/F3-H.png" alt="Sports that laugh">
-        <img class="frame__headline js-headline-4" src="./images/F4-H.png" alt="All curated for you">
-
-        <img class="frame__screen js-screen-1" src="./images/screen-1.png" alt="">
-        <img class="frame__screen js-screen-2" src="./images/screen-2.png" alt="">
-        <img class="frame__screen js-screen-3" src="./images/screen-3.png" alt="">
-        <img class="frame__screen js-screen-4" src="./images/screen-4.png" alt="">
-
-
+        <img class="frame__headline js-f1-head" src="./images/F1-H.png" alt="">
+        <img class="frame__thumb js-f1-thumb-left2" src="./images/f1-thumb5.png" alt="">
+        <img class="frame__thumb js-f1-thumb-right2" src="./images/f1-thumb4.png" alt="">
+        <img class="frame__thumb js-f1-thumb-right" src="./images/f1-thumb3.png" alt="">
+        <img class="frame__thumb js-f1-thumb-left" src="./images/f1-thumb2.png" alt="">
+        <img class="frame__thumb js-f1-thumb" src="./images/f1-thumb1.png" alt="">
 
 
 
       </div>
       <div class="frame frame--2 js-frame-2">
-        <!-- <img src="./images/endframe.png" class="frame__slide" alt="">
-        <div class="cta-btn"></div> -->
+        <img class="frame__headline js-f2-head" src="./images/F2-H.png" alt="">
+        <img class="frame__thumb js-f2-thumb-left2" src="./images/f2-thumb5.png" alt="">
+        <img class="frame__thumb js-f2-thumb-right2" src="./images/f2-thumb4.png" alt="">
+        <img class="frame__thumb js-f2-thumb-right" src="./images/f2-thumb3.png" alt="">
+        <img class="frame__thumb js-f2-thumb-left" src="./images/f2-thumb2.png" alt="">
+        <img class="frame__thumb js-f2-thumb" src="./images/f2-thumb1.png" alt="">
+      </div>
+      <div class="frame frame--3 js-frame-3">
+        <img class="frame__headline js-f3-head" src="./images/F3-H.png" alt="">
+        <img class="frame__thumb js-f3-thumb-left2" src="./images/f3-thumb5.png" alt="">
+        <img class="frame__thumb js-f3-thumb-right2" src="./images/f3-thumb4.png" alt="">
+        <img class="frame__thumb js-f3-thumb-right" src="./images/f3-thumb3.png" alt="">
+        <img class="frame__thumb js-f3-thumb-left" src="./images/f3-thumb2.png" alt="">
+        <img class="frame__thumb js-f3-thumb" src="./images/f3-thumb1.png" alt="">
+      </div>
+      <div class="frame frame--4 js-frame-4">
+        <img class="frame__headline js-f4-head" src="./images/F4-H.png" alt="">
+      </div>
+      <div class="frame frame--endframe js-endframe">
+        <img class="frame__headline js-endframe-head1" src="./images/endframe-h1.png" alt="">
+       <img class="frame__headline js-endframe-head2" src="./images/endframe-h2.png" alt="">
+        <img class="frame__headline js-endframe-head3" src="./images/endframe-h3.png" alt="">
+        <img class="cta js-cta" src="./images/cta.png" alt="">
+        <img class="endframe-phone js-efp-left" src="./images/endframe-phone-left.png" alt="">
+        <img class="endframe-phone js-efp-right" src="./images/endframe-phone-right.png" alt="">
       </div>
     </div>
   </div>
