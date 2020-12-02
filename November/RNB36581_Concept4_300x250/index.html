@@ -296,7 +296,77 @@
       height: 113px;
       right: -9px;
       transform: translateY(112px);
-    }    
+    }   
+
+    .dash-wrapper {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 7;
+     
+    }
+
+    .dash-logos {
+      position: absolute;
+      width: 100%;
+      height: 95px;
+      bottom: 0;
+      left: 0;
+      overflow: hidden;
+    }
+
+    .dash-names {
+      position: absolute;
+      width: 100%;
+      height: 85px;
+      bottom: 0;
+      left: 0;
+      overflow: hidden;
+    }
+
+    .dash-nums {
+      position: absolute;
+      width: 100%;
+      height: auto;
+      left: 0;
+      bottom: 0px;
+      opacity: 0;
+    }
+
+    .f2-dash-num {
+      opacity: 1;
+    }
+
+    .dash-logos img {
+      position: absolute;
+      width: 100%;
+      height: auto;
+      left: 0;
+      bottom: 0px;
+
+    }
+
+    .dash-names img {
+      position: absolute;
+      width: 100%;
+      height: auto;
+      left: 0;
+      bottom: 0px;
+    }
+
+    .dash-names img.f3-dash-name,
+    .dash-names img.f4-dash-name {
+      left: -4px;
+    }
+
+    .f3-dash-num,
+    .f4-dash-num {
+      left: -5px;
+    }
+
+
+
+
   </style>
   <script type="text/javascript" charset="utf-8">
     document.addEventListener("DOMContentLoaded", function (e) {
@@ -317,10 +387,23 @@
         var f2_head = document.querySelector('.f2-head');
         var f2_bg = document.querySelector('.f2-bg');
         var f2_dash = document.querySelector('.f2-dash');
+        var f2_dash_logo = document.querySelector('.f2-dash-logo');
+        var f2_dash_name = document.querySelector('.f2-dash-name');
+        var f2_dash_num = document.querySelector('.f2-dash-num');
+
+
         var f3_head = document.querySelector('.f3-head');
         var f3_bg = document.querySelector('.f3-bg');
+        var f3_dash_logo = document.querySelector('.f3-dash-logo');
+        var f3_dash_name = document.querySelector('.f3-dash-name');
+        var f3_dash_num = document.querySelector('.f3-dash-num');
+
         var f4_head = document.querySelector('.f4-head');
         var f4_bg = document.querySelector('.f4-bg');
+        var f4_dash_logo = document.querySelector('.f4-dash-logo');
+        var f4_dash_name = document.querySelector('.f4-dash-name');
+        var f4_dash_num = document.querySelector('.f4-dash-num');
+
         var f5_head = document.querySelector('.f5-head');
         var f5_copy_1 = document.querySelector('.f5-copy-1');
         var f5_copy_2 = document.querySelector('.f5-copy-2');
@@ -335,14 +418,31 @@
           .to(f2_head, .6, { opacity: 1, ease: Sine.easeOut }, '+=0')
           .to(f2_bg, .7, { autoAlpha: 1, ease: Sine.easeOut }, '-=.3')
           .from(f2_dash, .5, { top:'+=50%', ease: Sine.easeOut }, '-=.4')
+          .from(f2_dash_logo, .5, { bottom:'-=125px', ease: Sine.easeOut }, '-=.5')
+          .from(f2_dash_name, .5, { bottom:'-=125px', ease: Sine.easeOut }, '-=.5')
+          .from(f2_dash_num, .5, { bottom:'-=125px', ease: Sine.easeOut }, '-=.5')
           .to(f2_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
 
           .to(f3_head, .6, { opacity: 1, ease: Sine.easeOut }, '+=0')
           .from(f3_bg, .5, { left: '+=100%', ease: Sine.easeOut }, '-=.3')
+          .to(f2_dash_logo, .5, { bottom:'+=125px', ease: Sine.easeOut }, '-=.5')
+          .to(f2_dash_name, .5, { bottom:'+=125px', ease: Sine.easeOut }, '-=.5')
+          .to(f2_dash_num, .5, { opacity: 0, ease: Sine.easeOut }, '-=.5')
+          .from(f3_dash_logo, .5, { bottom:'-=125px', ease: Sine.easeOut }, '-=.5')
+          .from(f3_dash_name, .5, { bottom:'-=125px', ease: Sine.easeOut }, '-=.5')
+          .to(f3_dash_num, .5, { opacity: 1, ease: Sine.easeOut }, '-=.5')
+          .from([f3_dash_logo,f3_dash_name], .2, { autoAlpha: 0, ease: Sine.easeOut }, '-=.2')
           .to(f3_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
 
           .to(f4_head, .6, { opacity: 1, ease: Sine.easeOut }, '+=0')
           .from(f4_bg, .5, { left: '+=100%', ease: Sine.easeOut }, '-=.3')
+          .to(f3_dash_logo, .5, { bottom:'+=125px', ease: Sine.easeOut }, '-=.5')
+          .to(f3_dash_name, .5, { bottom:'+=125px', ease: Sine.easeOut }, '-=.5')
+          .to(f3_dash_num, .5, { opacity: 0, ease: Sine.easeOut }, '-=.5')
+          .from(f4_dash_logo, .5, { bottom:'-=125px', ease: Sine.easeOut }, '-=.5')
+          .from(f4_dash_name, .5, { bottom:'-=125px', ease: Sine.easeOut }, '-=.5')
+          .to(f4_dash_num, .5, { opacity: 1, ease: Sine.easeOut }, '-=.5')
+          .from([f4_dash_logo,f4_dash_name], .2, { autoAlpha: 0, ease: Sine.easeOut }, '-=.2')
 
           .from(f5_bg, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
           .from(f5_copy_1, .6, { autoAlpha: 0, ease: Sine.easeOut }, '-=.1')
@@ -376,12 +476,21 @@
         document.querySelector('.f2-head').setAttribute('src','./images/SXM_Concept_3-F2-text.png');
         document.querySelector('.f2-bg').setAttribute('src','./images/SXM_Concept_3-F2-bg.png');
         document.querySelector('.f2-dash').setAttribute('src','./images/SXM_Concept_3-F2-dash.png');
+        document.querySelector('.f2-dash-logo').setAttribute('src','./images/SXM_Concept_3-F2-ch-logo.png');
+        document.querySelector('.f2-dash-name').setAttribute('src','./images/SXM_Concept_3-F2-ch-name.png');
+        document.querySelector('.f2-dash-num').setAttribute('src','./images/SXM_Concept_3-F2-ch-num.png');
         //
         document.querySelector('.f3-head').setAttribute('src','./images/SXM_Concept_3-F3-text.png');
         document.querySelector('.f3-bg').setAttribute('src','./images/SXM_Concept_3-F3-bg.png');
+        document.querySelector('.f3-dash-logo').setAttribute('src','./images/SXM_Concept_3-F3-ch-logo.png');
+        document.querySelector('.f3-dash-name').setAttribute('src','./images/SXM_Concept_3-F3-ch-name.png');
+        document.querySelector('.f3-dash-num').setAttribute('src','./images/SXM_Concept_3-F3-ch-num.png');
         //
         document.querySelector('.f4-head').setAttribute('src','./images/SXM_Concept_3-F4-text.png');
         document.querySelector('.f4-bg').setAttribute('src','./images/SXM_Concept_3-F4-bg.png');
+        document.querySelector('.f4-dash-logo').setAttribute('src','./images/SXM_Concept_3-F4-ch-logo.png');
+        document.querySelector('.f4-dash-name').setAttribute('src','./images/SXM_Concept_3-F4-ch-name.png');
+        document.querySelector('.f4-dash-num').setAttribute('src','./images/SXM_Concept_3-F4-ch-num.png');
         //
         document.querySelector('.f5-head').setAttribute('src','./images/SXM_Concept_3-F5-text.png');
         document.querySelector('.f5-copy-1').setAttribute('src','./images/SXM_Concept_3-F5-text-2.png');
@@ -429,9 +538,15 @@
           './images/SXM_Concept_3-F3-ch-logo.png',
           './images/SXM_Concept_3-F3-ch-name.png',
           './images/SXM_Concept_3-F3-ch-num.png',
+          './images/SXM_Concept_3-F3-ch-logo.png',
+          './images/SXM_Concept_3-F3-ch-name.png',
+          './images/SXM_Concept_3-F3-ch-num.png',
 
           './images/SXM_Concept_3-F4-text.png',
           './images/SXM_Concept_3-F4-bg.png',
+          './images/SXM_Concept_3-F4-ch-logo.png',
+          './images/SXM_Concept_3-F4-ch-name.png',
+          './images/SXM_Concept_3-F4-ch-num.png',
           './images/SXM_Concept_3-F4-ch-logo.png',
           './images/SXM_Concept_3-F4-ch-name.png',
           './images/SXM_Concept_3-F4-ch-num.png',
@@ -470,6 +585,22 @@
 
 
       <div class="dash-wrapper">
+
+        <div class="dash-logos">
+          <img class="f2-dash-logo" src="" alt="">
+          <img class="f3-dash-logo" src="" alt="">
+          <img class="f4-dash-logo" src="" alt="">
+        </div>
+
+        <div class="dash-names">
+          <img class="f2-dash-name" src="" alt="">
+          <img class="f3-dash-name" src="" alt="">
+          <img class="f4-dash-name" src="" alt="">
+        </div>
+
+        <img class="dash-nums f2-dash-num" src="" alt="">
+        <img class="dash-nums f3-dash-num" src="" alt="">
+        <img class="dash-nums f4-dash-num" src="" alt="">
 
       </div>
 
