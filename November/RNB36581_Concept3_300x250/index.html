@@ -176,6 +176,11 @@
     }
     .f3-phone {
       z-index: 6;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
     }
 
     .frame--4 {
@@ -309,6 +314,23 @@
      
     }
 
+    .dash-app-info {
+      position: absolute;
+      width: 100%;
+      height: 132px;
+      bottom: 0;
+      left: 0;
+      overflow: hidden;
+    }
+
+    .dash-app-info img {
+      position: absolute;
+      width: 100%;
+      height: auto;
+      left: 0;
+      bottom: 0px;
+    }
+
     .dash-logos {
       position: absolute;
       width: 100%;
@@ -370,6 +392,9 @@
 
 
 
+
+
+
   </style>
   <script type="text/javascript" charset="utf-8">
     document.addEventListener("DOMContentLoaded", function (e) {
@@ -398,15 +423,11 @@
         var f3_head = document.querySelector('.f3-head');
         var f3_bg = document.querySelector('.f3-bg');
         var f3_phone = document.querySelector('.f3-phone');
-        var f3_dash_logo = document.querySelector('.f3-dash-logo');
-        var f3_dash_name = document.querySelector('.f3-dash-name');
-        var f3_dash_num = document.querySelector('.f3-dash-num');
+        var f3_dash_info = document.querySelector('.f3-dash-info');
 
         var f4_head = document.querySelector('.f4-head');
         var f4_bg = document.querySelector('.f4-bg');
-        var f4_dash_logo = document.querySelector('.f4-dash-logo');
-        var f4_dash_name = document.querySelector('.f4-dash-name');
-        var f4_dash_num = document.querySelector('.f4-dash-num');
+        var f4_dash_info = document.querySelector('.f4-dash-info');
 
         var f5_head = document.querySelector('.f5-head');
         var f5_copy_1 = document.querySelector('.f5-copy-1');
@@ -428,11 +449,14 @@
           .to(f2_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
 
           .to(f3_head, .6, { opacity: 1, ease: Sine.easeOut }, '+=0')
-          .from([f3_bg,f3_phone], .5, { left: '+=100%', ease: Sine.easeOut }, '-=.3')
+          .from([f3_bg], .5, { left: '+=100%', ease: Sine.easeOut }, '-=.3')
+          .from([f3_phone, f3_dash_info], .5, { bottom: '-=250px', ease: Sine.easeOut }, '-=.3')
           .to(f3_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
 
           .to(f4_head, .6, { opacity: 1, ease: Sine.easeOut }, '+=0')
           .from(f4_bg, .5, { left: '+=100%', ease: Sine.easeOut }, '-=.3')
+          .to([f3_dash_info], .25, { bottom: '+=100%', ease: Sine.easeOut }, '-=.5')
+          .from([f4_dash_info], .5, { bottom: '-=250px', ease: Sine.easeOut }, '-=.5')
 
 
           .from(f5_bg, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
@@ -474,9 +498,12 @@
         document.querySelector('.f3-head').setAttribute('src','./images/SXM_Concept_3-F3-text.png');
         document.querySelector('.f3-bg').setAttribute('src','./images/SXM_Concept_3-F3-bg.png');
         document.querySelector('.f3-phone').setAttribute('src','./images/SXM_Concept_3-F3-phone.png');
+        document.querySelector('.f3-dash-info').setAttribute('src','./images/SXM_Concept_3-F3-ch-info.png');
+        
         //
         document.querySelector('.f4-head').setAttribute('src','./images/SXM_Concept_3-F4-text.png');
         document.querySelector('.f4-bg').setAttribute('src','./images/SXM_Concept_3-F4-bg.png');
+        document.querySelector('.f4-dash-info').setAttribute('src','./images/SXM_Concept_3-F4-ch-info.png');
         //
         document.querySelector('.f5-head').setAttribute('src','./images/SXM_Concept_3-F5-text.png');
         document.querySelector('.f5-copy-1').setAttribute('src','./images/SXM_Concept_3-F5-text-2.png');
@@ -522,10 +549,11 @@
           './images/SXM_Concept_3-F3-text.png',
           './images/SXM_Concept_3-F3-bg.png',
           './images/SXM_Concept_3-F3-bg.png',
-
+          './images/SXM_Concept_3-F3-ch-info.png',
 
           './images/SXM_Concept_3-F4-text.png',
           './images/SXM_Concept_3-F4-bg.png',
+          './images/SXM_Concept_3-F4-ch-info.png',
 
           './images/SXM_Concept_3-F5-text.png',
           './images/SXM_Concept_3-F5-text-2.png',
@@ -564,7 +592,20 @@
 
       <img class="frame-img logo" alt="" src="">
 
-      <img class="frame-img f3-phone" src="" alt="">
+      <div class="dash-wrapper">
+
+        <div class="dash-app-info">
+          <img class="f3-dash-info" src="" alt="">
+          <img class="f4-dash-info" src="" alt="">
+        </div>
+
+
+
+
+
+      </div>
+
+      <img class="f3-phone" src="" alt="">
       
 
 
