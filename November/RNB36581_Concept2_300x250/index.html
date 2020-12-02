@@ -404,11 +404,13 @@
         var more = document.querySelector('.js-frame-more');
 
           bannerTL
+          
           .to([f3, more], .2, { opacity: 0, ease: Expo.out }, '-=0')
           .to([f4], .2, { opacity: 1, ease: Expo.out }, '-=.75')
           .to([h1], .2, { opacity: 1, ease: Expo.out }, '+=.2')
           .to([f4ScreenMiddle], .2, { opacity: 1, ease: Expo.out,
             onStart:function() {
+              
             preloadImages([
               './images/endframe-h.png',
               './images/endframe-sh.png',
@@ -431,6 +433,7 @@
               console.log(bannerTL.time());
               }
             }, '+=.8')
+          .timeScale( 1.25 )
       }
 
       function endframe() {
@@ -441,6 +444,7 @@
         var shEnd = document.querySelector('.js-endframe-subhead');
 
         bannerTL
+          .timeScale( 1 )
           .to([f4], .75, { opacity: 0, ease: Expo.out }, '+=0')
           .to([f5], .75, { opacity: 1, ease: Expo.out }, '-=.75')
           .to([h1], .2, { opacity: 1, ease: Expo.out }, '+=.2')
