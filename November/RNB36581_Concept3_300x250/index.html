@@ -174,6 +174,9 @@
     .f3-bg {
       z-index: 1;
     }
+    .f3-phone {
+      z-index: 6;
+    }
 
     .frame--4 {
       z-index: 4;
@@ -394,6 +397,7 @@
 
         var f3_head = document.querySelector('.f3-head');
         var f3_bg = document.querySelector('.f3-bg');
+        var f3_phone = document.querySelector('.f3-phone');
         var f3_dash_logo = document.querySelector('.f3-dash-logo');
         var f3_dash_name = document.querySelector('.f3-dash-name');
         var f3_dash_num = document.querySelector('.f3-dash-num');
@@ -424,7 +428,7 @@
           .to(f2_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
 
           .to(f3_head, .6, { opacity: 1, ease: Sine.easeOut }, '+=0')
-          .from(f3_bg, .5, { left: '+=100%', ease: Sine.easeOut }, '-=.3')
+          .from([f3_bg,f3_phone], .5, { left: '+=100%', ease: Sine.easeOut }, '-=.3')
           .to(f3_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
 
           .to(f4_head, .6, { opacity: 1, ease: Sine.easeOut }, '+=0')
@@ -469,6 +473,7 @@
         //
         document.querySelector('.f3-head').setAttribute('src','./images/SXM_Concept_3-F3-text.png');
         document.querySelector('.f3-bg').setAttribute('src','./images/SXM_Concept_3-F3-bg.png');
+        document.querySelector('.f3-phone').setAttribute('src','./images/SXM_Concept_3-F3-phone.png');
         //
         document.querySelector('.f4-head').setAttribute('src','./images/SXM_Concept_3-F4-text.png');
         document.querySelector('.f4-bg').setAttribute('src','./images/SXM_Concept_3-F4-bg.png');
@@ -512,9 +517,10 @@
           './images/SXM_Concept_3-F2-bg.png',
           './images/SXM_Concept_3-F2-ch-logo.png',
           './images/SXM_Concept_3-F2-ch-name.png',
-          './images/SXM_Concept_3-F2-ch-num.png',
+          './images/SXM_Concept_3-F3-phone.png',
 
           './images/SXM_Concept_3-F3-text.png',
+          './images/SXM_Concept_3-F3-bg.png',
           './images/SXM_Concept_3-F3-bg.png',
 
 
@@ -557,6 +563,8 @@
 
 
       <img class="frame-img logo" alt="" src="">
+
+      <img class="frame-img f3-phone" src="" alt="">
       
 
 
