@@ -198,7 +198,7 @@
     .dash-app-info {
       position: absolute;
       width: 100%;
-      height: 300px;
+      height: 253px;
       bottom: 0;
       left: 0;
       overflow: hidden;
@@ -263,10 +263,13 @@
           .from([f3_phone, f3_dash_info], .5, { bottom: '-=600px', ease: Sine.easeOut }, '-=.2')
           .to(f3_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
 
-          .from(f4_bg, .5, { left: '+=100%', ease: Sine.easeOut }, '+=1')
-          .to(f4_head, .6, { opacity: 1, ease: Sine.easeOut }, '-=.3')
-          .to([f3_dash_info], .5, { bottom: '+=100%', ease: Sine.easeOut }, '-=.4')
-          .from([f4_dash_info], .5, { bottom: '-=600px', ease: Sine.easeOut }, '-=.4')
+
+          .to(f4_head, .6, { opacity: 1, ease: Sine.easeOut }, '+=0')
+          .from(f4_bg, .5, { left: '+=100%', ease: Sine.easeOut }, '-=.3')
+          //.from(f4_bg, .5, { left: '+=100%', ease: Sine.easeOut }, '+=1')
+          //.to(f4_head, .6, { opacity: 1, ease: Sine.easeOut }, '-=.3')
+          .to(f3_dash_info, .5, { bottom: '+=100%', ease: Sine.easeOut }, '-=.4')
+          .from(f4_dash_info, .5, { bottom: '-=600px', ease: Sine.easeOut }, '-=.4')
 
           .from(f5_bg, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
           .from(f5_copy_1, .6, { autoAlpha: 0, ease: Sine.easeOut }, '-=.1')
