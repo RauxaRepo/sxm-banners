@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title></title>
+  <meta name="ad.size" content="width=300,height=600">
+  <script type="text/javascript">
+    var clickTag = "https://www.google.com/";
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+  <style type="text/css">
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    * {
+      padding: 0;
+    }
+
+    .container {
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .banner-content {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      display: none;
+      z-index: 1;
+    }
+
+    .banner-content.banner-content--active {
+      opacity: 1;
+      display: block;
+    }
+
+    .b-300x600 {
+      width: 300px;
+      height: 600px;
+      padding: 0;
+    }
+
+    img {
+      width: 300px;
+      height: 600px;
+    }
+
+
+    .cta-btn.hovered {
+      transform: scale(1.05);
+    }
+
+
+    .banner-border {
+      position: absolute;
+      width: 298px;
+      height: 598px;
+      border: 1px solid #000000;
+      pointer-events: none;
+      z-index: 6;
+      top: 0px;
+      left: 0px;
+    }
+
+    .exit {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 15;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+    }
+
+    .frame {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+    }
+
+   .cta-btn {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 300px;
+      height: 600px;
+      opacity: 1;
+      z-index: 12;
+    }
+
+   .logo {
+      z-index: 6;
+    }
+  
+    .frame--1 {
+      z-index: 1;
+      opacity: 1;
+    }
+
+    .f1-head {
+      z-index: 2;
+    }
+    .f1-bg {
+      z-index: 1;
+    }
+
+    .frame--2 {
+      opacity: 1;
+      z-index: 2;
+    }
+
+    .f2-head {
+      z-index: 3;
+      opacity: 0;
+    }
+    .f2-bg {
+      z-index: 1;
+      opacity: 0;
+    }
+    .f2-dash {
+      z-index: 6;
+    }
+
+    .frame--3 {
+      z-index: 3;
+      opacity: 1;
+    }
+    .f3-head {
+      z-index: 3;
+      opacity: 0;
+    }
+    .f3-bg {
+      z-index: 1;
+    }
+    .f3-phone {
+      z-index: 6;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+    }
+
+    .frame--4 {
+      z-index: 4;
+      opacity: 1;
+      height: 100%;
+    }
+
+    .f4-head {
+      z-index: 3;
+      opacity: 0;
+    }
+    .f4-bg {
+      z-index: 1;
+    }
+
+    .frame--5 {
+      opacity: 1;
+      z-index: 7;
+    }
+
+    .f5-bg {
+      z-index: 1;
+    }
+
+    .f5-copy-1, .f5-copy-2,
+    .f5-head {
+      z-index: 3;
+    }
+
+    .frame-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 300px;
+      height: 600px;
+    }
+
+    .dash-wrapper {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 7;  
+    }
+
+    .dash-app-info {
+      position: absolute;
+      width: 100%;
+      height: 300px;
+      bottom: 0;
+      left: 0;
+      overflow: hidden;
+    }
+
+    .dash-app-info img {
+      position: absolute;
+      width: 300px;
+      height: 600px;
+      bottom: 0;
+      left: 0;
+    }
+
+  </style>
+  <script type="text/javascript" charset="utf-8">
+    document.addEventListener("DOMContentLoaded", function (e) {
+      var loadedImage = 0;
+      var images = [];
+      var exit = document.querySelector('.exit');
+      var bannerContent = document.querySelector('.banner-content');
+      
+      var bannerConfig = {
+        width: 300,
+        height: 600
+      }
+      var bannerTL;
+
+      function playFrames() {
+
+        var f1_head = document.querySelector('.f1-head');
+        var f2_head = document.querySelector('.f2-head');
+        var f2_bg = document.querySelector('.f2-bg');
+        var f2_dash = document.querySelector('.f2-dash');
+
+        var f3_head = document.querySelector('.f3-head');
+        var f3_bg = document.querySelector('.f3-bg');
+        var f3_phone = document.querySelector('.f3-phone');
+        var f3_dash_info = document.querySelector('.f3-dash-info');
+
+        var f4_head = document.querySelector('.f4-head');
+        var f4_bg = document.querySelector('.f4-bg');
+        var f4_dash_info = document.querySelector('.f4-dash-info');
+
+        var f5_head = document.querySelector('.f5-head');
+        var f5_copy_1 = document.querySelector('.f5-copy-1');
+        var f5_copy_2 = document.querySelector('.f5-copy-2');
+        var f5_bg = document.querySelector('.f5-bg');
+        var ctaBtn = document.querySelector('.cta-btn');
+
+
+        bannerTL
+          .from(f1_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '-=0')
+          .to(f1_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
+          
+          .to(f2_head, .6, { opacity: 1, ease: Sine.easeOut }, '+=0')
+          .to(f2_bg, .7, { autoAlpha: 1, ease: Sine.easeOut }, '-=.3')
+          .from(f2_dash, .5, { top:'+=80%', ease: Sine.easeOut }, '-=.4')
+          .to(f2_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
+
+          .to(f3_head, .6, { opacity: 1, ease: Sine.easeOut }, '+=0')
+          .from([f3_bg], .5, { left: '+=100%', ease: Sine.easeOut }, '-=.3')
+          .from([f3_phone, f3_dash_info], .5, { bottom: '-=600px', ease: Sine.easeOut }, '-=.2')
+          .to(f3_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
+
+          .from(f4_bg, .5, { left: '+=100%', ease: Sine.easeOut }, '+=1')
+          .to(f4_head, .6, { opacity: 1, ease: Sine.easeOut }, '-=.3')
+          .to([f3_dash_info], .5, { bottom: '+=100%', ease: Sine.easeOut }, '-=.4')
+          .from([f4_dash_info], .5, { bottom: '-=600px', ease: Sine.easeOut }, '-=.4')
+
+          .from(f5_bg, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
+          .from(f5_copy_1, .6, { autoAlpha: 0, ease: Sine.easeOut }, '-=.1')
+          .from(f5_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '-=.3')
+          .from (ctaBtn, .6, { opacity: 0, y:600, x:0, ease: Sine.easeInOut }, '-=.2')
+          .from(f5_copy_2, .6, { autoAlpha: 0, y:600, x:0, ease: Sine.easeInOut }, '-=.1')
+
+      }
+
+
+      function preloadImages(imageUrls, frameContainer) {
+        var frameImages = Array.from(frameContainer.querySelectorAll('img'));
+        
+        for (var i = 0; i < imageUrls.length; i++) {
+          frameImages[i].src = imageUrls[i];
+        }
+      }
+
+      function init() {
+        bannerContent.classList.add('banner-content--active');
+
+        bannerTL = new TimelineMax({ paused: false, delay: .5 });
+
+        //set images
+        document.querySelector('.f1-bg').setAttribute('src','./images/SXM_Concept_3-F1-bg.png');
+        document.querySelector('.logo').setAttribute('src','./images/SXM_Concept_3-F1-logo.png');
+        document.querySelector('.f1-head').setAttribute('src','./images/SXM_Concept_3-F1-text.png');
+
+        //
+        document.querySelector('.f2-head').setAttribute('src','./images/SXM_Concept_3-F2-text.png');
+        document.querySelector('.f2-bg').setAttribute('src','./images/SXM_Concept_3-F2-bg.png');
+        document.querySelector('.f2-dash').setAttribute('src','./images/SXM_Concept_3-F2-dash.png');
+        //
+        document.querySelector('.f3-head').setAttribute('src','./images/SXM_Concept_3-F3-text.png');
+        document.querySelector('.f3-bg').setAttribute('src','./images/SXM_Concept_3-F3-bg.png');
+        document.querySelector('.f3-phone').setAttribute('src','./images/SXM_Concept_3-F3-phone.png');
+        document.querySelector('.f3-dash-info').setAttribute('src','./images/SXM_Concept_3-F3-ch-info.png');
+        
+        //
+        document.querySelector('.f4-head').setAttribute('src','./images/SXM_Concept_3-F4-text.png');
+        document.querySelector('.f4-bg').setAttribute('src','./images/SXM_Concept_3-F4-bg.png');
+        document.querySelector('.f4-dash-info').setAttribute('src','./images/SXM_Concept_3-F4-ch-info.png');
+        //
+        document.querySelector('.f5-head').setAttribute('src','./images/SXM_Concept_3-F5-text.png');
+        document.querySelector('.f5-copy-1').setAttribute('src','./images/SXM_Concept_3-F5-text-2.png');
+        document.querySelector('.f5-copy-2').setAttribute('src','./images/SXM_Concept_3-F5-text-3.png');
+        document.querySelector('.f5-bg').setAttribute('src','./images/SXM_Concept_3-F5-bg.png');
+        document.querySelector('.f5-cta').setAttribute('src','./images/CTA_button.png');
+        
+
+        playFrames();
+
+         setTimeout(function () {
+          bannerTL.pause();
+           console.log('pausing');
+        }, 15000)
+      }
+
+      function ctaOnHover(e) {
+        if (e.type == 'mouseenter') {
+          ctaBtn.classList.add('hovered');
+        } else {
+          ctaBtn.classList.remove('hovered');
+        }
+      }
+
+      function preload() {
+        images = [
+          './images/SXM_Concept_3-F1-bg.png',
+          './images/SXM_Concept_3-F1-logo.png',
+          './images/SXM_Concept_3-F1-text.png',
+          
+          './images/SXM_Concept_3-F2-text.png',
+          './images/SXM_Concept_3-F2-bg.png',
+          './images/SXM_Concept_3-F2-dash.png',
+          './images/SXM_Concept_3-F2-text.png',
+
+          './images/SXM_Concept_3-F3-phone.png',
+          './images/SXM_Concept_3-F3-text.png',
+          './images/SXM_Concept_3-F3-bg.png',
+          './images/SXM_Concept_3-F3-ch-info.png',
+
+          './images/SXM_Concept_3-F4-text.png',
+          './images/SXM_Concept_3-F4-bg.png',
+          './images/SXM_Concept_3-F4-ch-info.png',
+
+          './images/SXM_Concept_3-F5-text.png',
+          './images/SXM_Concept_3-F5-text-2.png',
+          './images/SXM_Concept_3-F5-text-3.png',
+          './images/SXM_Concept_3-F5-bg.png',
+          './images/CTA_button.png',
+          
+        ];
+
+        for (var i = 0; i < images.length; i++) {
+          var imageObj = new Image();
+          imageObj.src = images[i];
+          imageObj.addEventListener("load", iLoad, false);
+        }
+
+      }
+      function iLoad() {
+        loadedImage++;
+        if (images.length == loadedImage) {
+          init();
+        }
+      }
+
+      preload();
+    });
+  </script>
+</head>
+
+<body>
+  <div id="container" class="container b-300x600" style="background-color: #000000;">
+      <div class="banner-border"></div>
+
+      <div class="banner-content">
+
+          <img class="frame-img logo" alt="" src="">
+          <img class="f3-phone" src="" alt="">
+          <div class="dash-wrapper">
+              <div class="dash-app-info">
+                  <img class="f3-dash-info" src="" alt="">
+                  <img class="f4-dash-info" src="" alt="">
+              </div>
+          </div>
+
+
+        <div class="frame frame--1">
+            <img class="frame-img f1-head" alt="" src="">
+            <img class="frame-img f1-bg" alt="" src="">
+        </div>
+
+        <div class="frame frame--2">
+            <img class="frame-img f2-head" src="" alt="">
+            <img class="frame-img f2-bg" src="" alt="">
+            <img class="frame-img f2-dash" src="" alt="">
+        </div>
+
+        <div class="frame frame--3">
+            <img class="frame-img f3-head" src="" alt="">
+            <img class="frame-img f3-bg" src="" alt="">
+        </div>
+
+        <div class="frame frame--4">
+            <img class="frame-img f4-bg" src="" alt="">
+            <img class="frame-img f4-head" src="" alt="">
+        </div>
+
+
+        <div class="frame frame--5">
+            <img class="frame-img f5-bg" src="" alt="">
+            <img class="frame-img f5-head" src="" alt="">
+            <img class="frame-img f5-copy-1" src="" alt="">
+            <img class="frame-img f5-copy-2" src="" alt="">
+            <div class="cta-btn"><img class="frame-img f5-cta" src="" alt=""></div>
+        </div>
+        <a class="exit" href="javascript:void(window.open(window.clickTag))"></a>
+    </div>
+  </div>
+</body>
+
+</html>
