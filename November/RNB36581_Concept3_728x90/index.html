@@ -53,7 +53,7 @@
 
     .banner-border {
       position: absolute;
-      width: 72px;
+      width: 728px;
       height: 88px;
       border: 1px solid #000000;
       pointer-events: none;
@@ -177,7 +177,7 @@
     .dash-app-info {
       position: absolute;
       width: 100%;
-      height: 45px;
+      height: 78px;
       bottom: 0;
       left: 0;
       overflow: hidden;
@@ -234,25 +234,25 @@
           
           .to(f2_head, .6, { opacity: 1, ease: Sine.easeOut }, '+=0')
           .to(f2_bg, .7, { autoAlpha: 1, ease: Sine.easeOut }, '-=.3')
-          .from(f2_dash, .5, { top:'+=80%', ease: Sine.easeOut }, '-=.4')
+          .from(f2_dash, .5, { top:'+=200%', ease: Sine.easeOut }, '-=.4')
           .to(f2_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
 
           .to(f3_head, .6, { opacity: 1, ease: Sine.easeOut }, '+=0')
-          .from([f3_bg], .5, { left: '+=100%', ease: Sine.easeOut }, '-=.3')
-          .from([f3_phone, f3_dash_info], .5, { bottom: '-=600px', ease: Sine.easeOut }, '-=.2')
+          .from(f3_bg, .5, { left: '+=100%', ease: Sine.easeOut }, '-=.3')
+          .from([f3_phone, f3_dash_info], .5, { bottom: '-=200px', ease: Sine.easeOut }, '-=.2')
           .to(f3_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
 
 
           .to(f4_head, .6, { opacity: 1, ease: Sine.easeOut }, '+=0')
-          .from(f4_bg, .5, { left: '+=100%', ease: Sine.easeOut }, '-=.3')
+          .from(f4_bg, .6, { left: '+=100%', ease: Sine.easeOut }, '-=.2')
           .to(f3_dash_info, .5, { bottom: '+=100%', ease: Sine.easeOut }, '-=.4')
-          .from(f4_dash_info, .5, { bottom: '-=600px', ease: Sine.easeOut }, '-=.4')
+          .from(f4_dash_info, .5, { bottom: '-=200px', ease: Sine.easeOut }, '-=.4')
 
           .from(f5_bg, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
           .from(f5_copy_1, .6, { autoAlpha: 0, ease: Sine.easeOut }, '-=.1')
           .from(f5_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '-=.3')
-          .from (ctaBtn, .5, { opacity: 0, y:600, x:0, ease: Sine.easeOut }, '-=.3')
-          .from(f5_copy_2, .5, { autoAlpha: 0, y:600, x:0, ease: Sine.easeOut }, '-=.1')
+          .from (ctaBtn, .5, { opacity: 0, y:200, x:0, ease: Sine.easeOut }, '-=.3')
+          .from(f5_copy_2, .5, { autoAlpha: 0, y:200, x:0, ease: Sine.easeOut }, '-=.1')
 
       }
 
@@ -287,7 +287,7 @@
         
         //
         document.querySelector('.f4-head').setAttribute('src','./images/SXM_Concept_3-F4-text.png');
-        document.querySelector('.f4-bg').setAttribute('src','./images/SXM_Concept_3-F4-bg.png');
+        document.querySelector('.f4-bg').setAttribute('src','./images/SXM_Concept_3-F4-bg.jpg');
         document.querySelector('.f4-dash-info').setAttribute('src','./images/SXM_Concept_3-F4-ch-info.png');
         //
         document.querySelector('.f5-head').setAttribute('src','./images/SXM_Concept_3-F5-text.png');
@@ -315,12 +315,12 @@
 
       function preload() {
         images = [
-          './images/SXM_Concept_3-F1-bg.png',
+          './images/SXM_Concept_3-F1-bg.jpg',
           './images/SXM_Concept_3-F1-logo.png',
           './images/SXM_Concept_3-F1-text.png',
           
           './images/SXM_Concept_3-F2-text.png',
-          './images/SXM_Concept_3-F2-bg.png',
+          './images/SXM_Concept_3-F2-bg.jpg',
           './images/SXM_Concept_3-F2-dash.png',
           './images/SXM_Concept_3-F2-text.png',
 
@@ -330,7 +330,7 @@
           './images/SXM_Concept_3-F3-ch-info.png',
 
           './images/SXM_Concept_3-F4-text.png',
-          './images/SXM_Concept_3-F4-bg.png',
+          './images/SXM_Concept_3-F4-bg.jpg',
           './images/SXM_Concept_3-F4-ch-info.png',
 
           './images/SXM_Concept_3-F5-text.png',
