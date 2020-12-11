@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title></title>
-  <meta name="ad.size" content="width=300,height=250">
+  <meta name="ad.size" content="width=728,height=90">
   <script type="text/javascript">
     var clickTag = "https://www.google.com/";
   </script>
@@ -40,61 +40,21 @@
       display: block;
     }
 
-    .b-300x250 {
-      width: 300px;
-      height: 250px;
+    .b-728x90 {
+      width: 728px;
+      height: 90px;
       padding: 0;
     }
 
-    /*CTA BTN*/
-    .btn-container {
-      width: 300px;
-      height: 250px;
-      background-color: transparent;
-      position: absolute;
-      top: 0;
-      left: 0;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      z-index: 100;
-      cursor: pointer;
-    }
-
     img {
-      width: 300px;
-      height: 250px;
+      width: 728px;
+      height: 90px;
     }
-
-    .cta-btn {
-      background-color: #fff;
-      opacity: 1;
-      width: 93px;
-      height: 23px;
-      border-radius: 11px;
-      top: 103px;
-      left: 22px;
-      position: absolute;
-      z-index: 3;
-      
-      left: 50%;
-      top: 67%;
-      transform: translate(-50%,-50%);
-    }
-
-    .f5-cta {
-
-    }
-
-    .cta-btn.hovered {
-      transform: scale(1.05);
-    }
-
 
     .banner-border {
       position: absolute;
-      width: 298px;
-      height: 248px;
+      width: 72px;
+      height: 88px;
       border: 1px solid #000000;
       pointer-events: none;
       z-index: 6;
@@ -106,32 +66,35 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      z-index: 5;
+      z-index: 15;
       top: 0;
       left: 0;
       cursor: pointer;
     }
 
-
     .frame {
       position: absolute;
       top: 0;
       left: 0;
-      bottom: 0;
-      right: 0;
       width: 100%;
       height: 100%;
       opacity: 0;
-    
-      /* transform: translateX(300px); */
     }
-    
-    .logo {
+
+   .cta-btn {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 728px;
+      height: 90px;
+      opacity: 1;
+      z-index: 12;
+    }
+
+   .logo {
       z-index: 12;
     }
   
-
-
     .frame--1 {
       z-index: 1;
       opacity: 1;
@@ -149,31 +112,19 @@
       z-index: 2;
     }
 
-    .f2-head {
-      z-index: 3;
-      opacity: 0;
-    }
     .f2-bg {
-      z-index: 1;
+      z-index: 2;
       opacity: 0;
     }
     .f2-dash {
       z-index: 6;
     }
 
-
-
     .frame--3 {
       z-index: 3;
       opacity: 1;
     }
-    .f3-head {
-      z-index: 3;
-      opacity: 0;
-    }
-    .f3-bg {
-      z-index: 1;
-    }
+ 
     .f3-phone {
       z-index: 6;
       position: absolute;
@@ -187,12 +138,11 @@
       z-index: 4;
       opacity: 1;
     }
+
+    .f2-head, .f3-head, 
     .f4-head {
       z-index: 3;
       opacity: 0;
-    }
-    .f4-bg {
-      z-index: 1;
     }
 
     .frame--5 {
@@ -200,124 +150,34 @@
       z-index: 7;
     }
 
-    .f5-head {
-      z-index: 3;
-    }
-    .f5-bg {
+    .f3-bg, .f4-bg, .f5-bg {
       z-index: 1;
     }
 
-    .f5-copy-1 {
+    .f5-copy-1, .f5-copy-2,
+    .f5-head {
       z-index: 3;
-    
     }
-    .f5-copy-2 {
-      z-index: 3;
-     
-    }
-
 
     .frame-img {
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: auto;
+      width: 728px;
+      height: 90px;
     }
-
-    .frame__headline {
-      position: absolute;
-      height: 57px;
-      width: auto;
-      left: 21px;
-      margin: 0 auto;
-      top: 15px;
-      opacity: 1;
-    }
-
-    .frame--2 .frame__headline,
-    .frame--3 .frame__headline,
-    .frame--4 .frame__headline {
-      left: 22px;
-    }
-
-    .frame--4 .frame__headline {
-      height: 49px;
-    }
-
-    .frame__subhead {
-      position: absolute;
-      height: 26px;
-      width: auto;
-      left: 21px;
-      margin: 0 auto;
-      top: 77px;
-      opacity: 0;
-    }
-
-    .frame__background, .frame__slide {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 0;
-    }
-
-
-    .device-mask {
-      width: 127px;
-      height: auto;
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      margin: 0 auto;
-      z-index: 1;
-    }
-
-    .frame__phone {
-      width: auto;
-      height: 140px;
-      position: absolute;
-      right: -28px;
-      bottom: 0px;
-      margin: 0 auto;
-      z-index: 1;
-      opacity: 1;
-    }
-
-    .frame__screen {
-      width: auto;
-      height: 129px;
-      position: absolute;
-      right: -18px;
-      transform: translateY(110px);
-      margin: 0 auto;
-      opacity: 0;
-    }
-
-    .frame__screen--bottom {
-      opacity: 1;
-      height: 113px;
-      right: -9px;
-      transform: translateY(112px);
-    }   
 
     .dash-wrapper {
       position: absolute;
       width: 100%;
       height: 100%;
-      z-index: 7;
-     
+      z-index: 7;  
     }
 
     .dash-app-info {
       position: absolute;
       width: 100%;
-      height: 132px;
+      height: 45px;
       bottom: 0;
       left: 0;
       overflow: hidden;
@@ -325,75 +185,11 @@
 
     .dash-app-info img {
       position: absolute;
-      width: 100%;
-      height: auto;
-      left: 0;
-      bottom: 0px;
-    }
-
-    .dash-logos {
-      position: absolute;
-      width: 100%;
-      height: 95px;
+      width: 728px;
+      height: 90px;
       bottom: 0;
       left: 0;
-      overflow: hidden;
     }
-
-    .dash-names {
-      position: absolute;
-      width: 100%;
-      height: 85px;
-      bottom: 0;
-      left: 0;
-      overflow: hidden;
-    }
-
-    .dash-nums {
-      position: absolute;
-      width: 100%;
-      height: auto;
-      left: 0;
-      bottom: 0px;
-      opacity: 0;
-    }
-
-    .f2-dash-num {
-      opacity: 1;
-    }
-
-    .dash-logos img {
-      position: absolute;
-      width: 100%;
-      height: auto;
-      left: 0;
-      bottom: 0px;
-
-    }
-
-    .dash-names img {
-      position: absolute;
-      width: 100%;
-      height: auto;
-      left: 0;
-      bottom: 0px;
-    }
-
-    .dash-names img.f3-dash-name,
-    .dash-names img.f4-dash-name {
-      left: -4px;
-    }
-
-    .f3-dash-num,
-    .f4-dash-num {
-      left: -5px;
-    }
-
-
-
-
-
-
 
   </style>
   <script type="text/javascript" charset="utf-8">
@@ -404,8 +200,8 @@
       var bannerContent = document.querySelector('.banner-content');
       
       var bannerConfig = {
-        width: 300,
-        height: 250
+        width: 728,
+        height: 90
       }
       var bannerTL;
 
@@ -415,10 +211,6 @@
         var f2_head = document.querySelector('.f2-head');
         var f2_bg = document.querySelector('.f2-bg');
         var f2_dash = document.querySelector('.f2-dash');
-        var f2_dash_logo = document.querySelector('.f2-dash-logo');
-        var f2_dash_name = document.querySelector('.f2-dash-name');
-        var f2_dash_num = document.querySelector('.f2-dash-num');
-
 
         var f3_head = document.querySelector('.f3-head');
         var f3_bg = document.querySelector('.f3-bg');
@@ -442,30 +234,25 @@
           
           .to(f2_head, .6, { opacity: 1, ease: Sine.easeOut }, '+=0')
           .to(f2_bg, .7, { autoAlpha: 1, ease: Sine.easeOut }, '-=.3')
-          .from(f2_dash, .5, { top:'+=50%', ease: Sine.easeOut }, '-=.4')
-          .from(f2_dash_logo, .5, { bottom:'-=125px', ease: Sine.easeOut }, '-=.5')
-          .from(f2_dash_name, .5, { bottom:'-=125px', ease: Sine.easeOut }, '-=.5')
-          .from(f2_dash_num, .5, { bottom:'-=125px', ease: Sine.easeOut }, '-=.5')
+          .from(f2_dash, .5, { top:'+=80%', ease: Sine.easeOut }, '-=.4')
           .to(f2_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
 
           .to(f3_head, .6, { opacity: 1, ease: Sine.easeOut }, '+=0')
           .from([f3_bg], .5, { left: '+=100%', ease: Sine.easeOut }, '-=.3')
-          .from([f3_phone, f3_dash_info], .5, { bottom: '-=250px', ease: Sine.easeOut }, '-=.3')
+          .from([f3_phone, f3_dash_info], .5, { bottom: '-=600px', ease: Sine.easeOut }, '-=.2')
           .to(f3_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
+
 
           .to(f4_head, .6, { opacity: 1, ease: Sine.easeOut }, '+=0')
           .from(f4_bg, .5, { left: '+=100%', ease: Sine.easeOut }, '-=.3')
-          .to([f3_dash_info], .25, { bottom: '+=100%', ease: Sine.easeOut }, '-=.5')
-          .from([f4_dash_info], .5, { bottom: '-=250px', ease: Sine.easeOut }, '-=.5')
-
+          .to(f3_dash_info, .5, { bottom: '+=100%', ease: Sine.easeOut }, '-=.4')
+          .from(f4_dash_info, .5, { bottom: '-=600px', ease: Sine.easeOut }, '-=.4')
 
           .from(f5_bg, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
           .from(f5_copy_1, .6, { autoAlpha: 0, ease: Sine.easeOut }, '-=.1')
           .from(f5_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '-=.3')
-          .from(ctaBtn, .5, { top:'+=60%', ease: Sine.easeOut }, '-=.3')
-          .from(f5_copy_2, .6, { autoAlpha: 0, ease: Sine.easeOut }, '-=.1')
-
-         
+          .from (ctaBtn, .5, { opacity: 0, y:600, x:0, ease: Sine.easeOut }, '-=.3')
+          .from(f5_copy_2, .5, { autoAlpha: 0, y:600, x:0, ease: Sine.easeOut }, '-=.1')
 
       }
 
@@ -484,19 +271,17 @@
         bannerTL = new TimelineMax({ paused: false, delay: .5 });
 
         //set images
+        document.querySelector('.f1-bg').setAttribute('src','./images/SXM_Concept_3-F1-bg.png');
         document.querySelector('.logo').setAttribute('src','./images/SXM_Concept_3-F1-logo.png');
         document.querySelector('.f1-head').setAttribute('src','./images/SXM_Concept_3-F1-text.png');
-        document.querySelector('.f1-bg').setAttribute('src','./images/SXM_Concept_3-F1-bg.png');
+
         //
         document.querySelector('.f2-head').setAttribute('src','./images/SXM_Concept_3-F2-text.png');
         document.querySelector('.f2-bg').setAttribute('src','./images/SXM_Concept_3-F2-bg.png');
         document.querySelector('.f2-dash').setAttribute('src','./images/SXM_Concept_3-F2-dash.png');
-        document.querySelector('.f2-dash-logo').setAttribute('src','./images/SXM_Concept_3-F2-ch-logo.png');
-        document.querySelector('.f2-dash-name').setAttribute('src','./images/SXM_Concept_3-F2-ch-name.png');
-        document.querySelector('.f2-dash-num').setAttribute('src','./images/SXM_Concept_3-F2-ch-num.png');
         //
         document.querySelector('.f3-head').setAttribute('src','./images/SXM_Concept_3-F3-text.png');
-        document.querySelector('.f3-bg').setAttribute('src','./images/SXM_Concept_3-F3-bg.png');
+        document.querySelector('.f3-bg').setAttribute('src','./images/SXM_Concept_3-F3-bg.jpg');
         document.querySelector('.f3-phone').setAttribute('src','./images/SXM_Concept_3-F3-phone.png');
         document.querySelector('.f3-dash-info').setAttribute('src','./images/SXM_Concept_3-F3-ch-info.png');
         
@@ -511,16 +296,13 @@
         document.querySelector('.f5-bg').setAttribute('src','./images/SXM_Concept_3-F5-bg.png');
         document.querySelector('.f5-cta').setAttribute('src','./images/CTA_button.png');
         
-        
-        
 
-        
         playFrames();
 
-        // setTimeout(function () {
-        //   bannerTL.pause();
-        //   console.log('pausing');
-        // }, 15000)
+         setTimeout(function () {
+          bannerTL.pause();
+           console.log('pausing');
+        }, 15000)
       }
 
       function ctaOnHover(e) {
@@ -541,14 +323,10 @@
           './images/SXM_Concept_3-F2-bg.png',
           './images/SXM_Concept_3-F2-dash.png',
           './images/SXM_Concept_3-F2-text.png',
-          './images/SXM_Concept_3-F2-bg.png',
-          './images/SXM_Concept_3-F2-ch-logo.png',
-          './images/SXM_Concept_3-F2-ch-name.png',
-          './images/SXM_Concept_3-F3-phone.png',
 
+          './images/SXM_Concept_3-F3-phone.png',
           './images/SXM_Concept_3-F3-text.png',
-          './images/SXM_Concept_3-F3-bg.png',
-          './images/SXM_Concept_3-F3-bg.png',
+          './images/SXM_Concept_3-F3-bg.jpg',
           './images/SXM_Concept_3-F3-ch-info.png',
 
           './images/SXM_Concept_3-F4-text.png',
@@ -580,92 +358,52 @@
       preload();
     });
   </script>
-
 </head>
 
 <body>
-  <div id="container" class="container b-300x250" style="background-color: #000000;">
-    <div class="banner-border"></div>
-    <a class="exit" href="javascript:void(window.open(window.clickTag))"></a>
-    <div class="banner-content">
+  <div id="container" class="container b-728x90" style="background-color: #000000;">
+      <div class="banner-border"></div>
+      <a class="exit" href="javascript:void(window.open(window.clickTag))"></a>
+      <div class="banner-content">
+          <img class="frame-img logo" alt="" src="">
+          <img class="f3-phone" src="" alt="">
+          <div class="dash-wrapper">
+              <div class="dash-app-info">
+                  <img class="f3-dash-info" src="" alt="">
+                  <img class="f4-dash-info" src="" alt="">
+              </div>
+          </div>
 
+        <div class="frame frame--1">
+            <img class="frame-img f1-head" alt="" src="">
+            <img class="frame-img f1-bg" alt="" src="">
+        </div>
 
+        <div class="frame frame--2">
+            <img class="frame-img f2-head" src="" alt="">
+            <img class="frame-img f2-bg" src="" alt="">
+            <img class="frame-img f2-dash" src="" alt="">
+        </div>
 
+        <div class="frame frame--3">
+            <img class="frame-img f3-head" src="" alt="">
+            <img class="frame-img f3-bg" src="" alt="">
+        </div>
 
-      <img class="frame-img logo" alt="" src="">
-
-      <div class="dash-wrapper">
-
-        <div class="dash-app-info">
-          <img class="f3-dash-info" src="" alt="">
-          <img class="f4-dash-info" src="" alt="">
+        <div class="frame frame--4">
+            <img class="frame-img f4-bg" src="" alt="">
+            <img class="frame-img f4-head" src="" alt="">
         </div>
 
 
-
-
-
-      </div>
-
-      <img class="f3-phone" src="" alt="">
-      
-
-
-
-      <div class="frame frame--1 js-frame-1">
-
-        <img class="frame-img f1-head" alt="" src="">
-        <img class="frame-img f1-bg" alt="" src="">
-
-      </div>
-
-      <div class="frame frame--2 js-frame-2">
-
-        <div class="dash-wrapper">
-
-          <div class="dash-logos">
-            <img class="f2-dash-logo" src="" alt="">
-          </div>
-  
-          <div class="dash-names">
-            <img class="f2-dash-name" src="" alt="">
-          </div>
-  
-          <img class="dash-nums f2-dash-num" src="" alt="">
-  
+        <div class="frame frame--5">
+            <img class="frame-img f5-bg" src="" alt="">
+            <img class="frame-img f5-head" src="" alt="">
+            <img class="frame-img f5-copy-1" src="" alt="">
+            <img class="frame-img f5-copy-2" src="" alt="">
+            <div class="cta-btn"><img class="frame-img f5-cta" src="" alt=""></div>
         </div>
 
-        <img class="frame-img f2-head" src="" alt="">
-        <img class="frame-img f2-bg" src="" alt="">
-        <img class="frame-img f2-dash" src="" alt="">
-
-
-
-        
-
-      </div>
-
-      <div class="frame frame--3 js-frame-3">
-
-        <img class="frame-img f3-head" src="" alt="">
-        <img class="frame-img f3-bg" src="" alt="">
-        
-      </div>
-      <div class="frame frame--4 js-frame-4">
-
-        <img class="frame-img f4-head" src="" alt="">
-        <img class="frame-img f4-bg" src="" alt="">
-
-      </div>
-      <div class="frame frame--5 js-endframe">
-
-        <img class="frame-img f5-head" src="" alt="">
-        <img class="frame-img f5-copy-1" src="" alt="">
-        <img class="frame-img f5-copy-2" src="" alt="">
-        <img class="frame-img f5-bg" src="" alt="">
-
-        <div class="cta-btn"><img class="frame-img f5-cta" src="" alt=""></div>
-      </div>
     </div>
   </div>
 </body>
