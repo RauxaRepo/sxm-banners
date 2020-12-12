@@ -53,11 +53,11 @@
 
     .banner-border {
       position: absolute;
-      width: 158px;
+      width: 298px;
       height: 598px;
       border: 1px solid #000000;
       pointer-events: none;
-      z-index: 11;
+      z-index: 6;
       top: 0px;
       left: 0px;
     }
@@ -78,7 +78,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      opacity: 1;
+      opacity: 0;
     }
 
    .cta-btn {
@@ -90,12 +90,46 @@
       opacity: 1;
       z-index: 12;
     }
-
-   .logo {
-    z-index: 12;
+    .cta-btn.hovered img{
+      transform: scale(1.05);
     }
 
+   .logo {
+      z-index: 12;
+    }
+  
+    .frame--1 {
+      z-index: 1;
+      opacity: 1;
+    }
+
+    .f1-head {
+      z-index: 2;
+    }
+    .f1-bg {
+      z-index: 1;
+    }
+
+    .frame--2 {
+      opacity: 1;
+      z-index: 2;
+    }
+
+    .f2-bg {
+      z-index: 2;
+      opacity: 0;
+    }
+    .f2-dash {
+      z-index: 6;
+    }
+
+    .frame--3 {
+      z-index: 3;
+      opacity: 1;
+    }
+ 
     .f3-phone {
+      z-index: 6;
       position: absolute;
       bottom: 0;
       left: 0;
@@ -103,9 +137,30 @@
       height: auto;
     }
 
-    .f2-bg, .f2-head, 
-    .f3-head, .f4-head {
+    .frame--4 {
+      z-index: 4;
+      opacity: 1;
+      height: 100%;
+    }
+
+    .f2-head, .f3-head, 
+    .f4-head {
+      z-index: 3;
       opacity: 0;
+    }
+
+    .frame--5 {
+      opacity: 1;
+      z-index: 7;
+    }
+
+    .f3-bg, .f4-bg, .f5-bg {
+      z-index: 1;
+    }
+
+    .f5-copy-1, .f5-copy-2,
+    .f5-head {
+      z-index: 3;
     }
 
     .frame-img {
@@ -118,16 +173,15 @@
 
     .dash-wrapper {
       position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
+      z-index: 7;  
     }
 
     .dash-app-info {
       position: absolute;
       width: 100%;
-      height: 253px;
+      height: 271px;
       bottom: 0;
       left: 0;
       overflow: hidden;
@@ -147,6 +201,7 @@
       height: 130px;
       bottom: 0;
       left: 0;
+      z-index: 7;  
     }
 
   </style>
@@ -158,7 +213,7 @@
       var bannerContent = document.querySelector('.banner-content');
       
       var bannerConfig = {
-        width: 300,
+        width: 160,
         height: 600
       }
       var bannerTL;
@@ -184,12 +239,12 @@
         var f5_copy_2 = document.querySelector('.f5-copy-2');
         var f5_bg = document.querySelector('.f5-bg');
         var ctaBtn = document.querySelector('.cta-btn');
+        var blk_logo_box = document.querySelector('.blk-logo-box');
 
 
         bannerTL
           .from(f1_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '-=0')
           .to(f1_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
-          
           .to(f2_head, .6, { opacity: 1, ease: Sine.easeOut }, '+=0')
           .to(f2_bg, .7, { autoAlpha: 1, ease: Sine.easeOut }, '-=.3')
           .from(f2_dash, .5, { top:'+=80%', ease: Sine.easeOut }, '-=.4')
@@ -198,15 +253,15 @@
           .to(f3_head, .6, { opacity: 1, ease: Sine.easeOut }, '+=0')
           .from([f3_bg], .5, { left: '+=100%', ease: Sine.easeOut }, '-=.3')
           .from([f3_phone, f3_dash_info], .5, { bottom: '-=600px', ease: Sine.easeOut }, '-=.2')
-          .to(f3_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
+          .to(f3_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.1')
 
 
           .to(f4_head, .6, { opacity: 1, ease: Sine.easeOut }, '+=0')
           .from(f4_bg, .5, { left: '+=100%', ease: Sine.easeOut }, '-=.3')
-          .to(f3_dash_info, .5, { bottom: '+=100%', ease: Sine.easeOut }, '-=.4')
-          .from(f4_dash_info, .5, { bottom: '-=600px', ease: Sine.easeOut }, '-=.4')
+          .to(f3_dash_info, .5, { bottom: '+=100%', ease: Sine.easeOut }, '-=.3')
+          .from(f4_dash_info, .5, { bottom: '-=600px', ease: Sine.easeOut }, '-=.3')
 
-          .from(f5_bg, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
+          .from(f5_bg, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.2')
           .from(f5_copy_1, .6, { autoAlpha: 0, ease: Sine.easeOut }, '-=.1')
           .from(f5_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '-=.3')
           .from (ctaBtn, .5, { opacity: 0, y:600, x:0, ease: Sine.easeOut }, '-=.3')
@@ -273,7 +328,7 @@
 
       function preload() {
         images = [
-         './images/SXM_Concept_3-F1-bg.jpg',
+          './images/SXM_Concept_3-F1-bg.jpg',
           './images/SXM_Concept_3-F1-logo.png',
           './images/SXM_Concept_3-F1-text.png',
           
@@ -323,47 +378,44 @@
       <div class="banner-border"></div>
       <a class="exit" href="javascript:void(window.open(window.clickTag))"></a>
       <div class="banner-content">
+          <img class="frame-img logo" alt="" src="">
+          <img class="f3-phone" src="" alt="">
+          <div class="dash-wrapper">
+              <div class="dash-app-info">
+                  <img class="f3-dash-info" src="" alt="">
+                  <img class="f4-dash-info" src="" alt="">
+              </div>
+          </div>
 
-        <div class="frame">
-            <img class="frame-img f1-bg" alt="" src="">
+        <div class="frame frame--1">
             <img class="frame-img f1-head" alt="" src="">
+            <img class="frame-img f1-bg" alt="" src="">
         </div>
 
-        <div class="frame">
-            <img class="frame-img f2-bg" src="" alt="">
+        <div class="frame frame--2">
             <img class="frame-img f2-head" src="" alt="">
+            <img class="frame-img f2-bg" src="" alt="">
             <img class="frame-img f2-dash" src="" alt="">
         </div>
 
-        <div class="frame">
-            <img class="frame-img f3-bg" src="" alt="">
+        <div class="frame frame--3">
             <img class="frame-img f3-head" src="" alt="">
+            <img class="frame-img f3-bg" src="" alt="">
         </div>
 
-        <div class="frame">
+        <div class="frame frame--4">
             <img class="frame-img f4-bg" src="" alt="">
             <img class="frame-img f4-head" src="" alt="">
         </div>
-
-        <img class="f3-phone" src="" alt="">
-
-        <div class="dash-wrapper">
-            <div class="dash-app-info">
-                <img class="f3-dash-info" src="" alt="">
-                <img class="f4-dash-info" src="" alt="">
-            </div>
-        </div>
-
         <div class="blk-logo-box"></div>
 
-        <div class="frame">
+        <div class="frame frame--5">
             <img class="frame-img f5-bg" src="" alt="">
             <img class="frame-img f5-head" src="" alt="">
             <img class="frame-img f5-copy-1" src="" alt="">
             <img class="frame-img f5-copy-2" src="" alt="">
             <div class="cta-btn"><img class="frame-img f5-cta" src="" alt=""></div>
         </div>
-        <img class="frame-img logo" alt="" src="">
 
     </div>
   </div>
