@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title></title>
-  <meta name="ad.size" content="width=728,height=90">
+  <meta name="ad.size" content="width=300,height=600">
   <script type="text/javascript">
     var clickTag = "https://www.google.com/";
   </script>
@@ -40,16 +40,16 @@
       display: block;
     }
 
-    .b-728x90 {
-      width: 728px;
-      height: 90px;
+    .b-300x600 {
+      width: 300px;
+      height: 600px;
       padding: 0;
     }
 
     /*CTA BTN*/
     .btn-container {
-      width: 728px;
-      height: 90px;
+      width: 300px;
+      height: 600px;
       position: absolute;
       top: 0;
       left: 0;
@@ -58,16 +58,16 @@
     }
 
     img {
-      width: 728px;
-      height: 90px;
+      width: 300px;
+      height: 600px;
     }
 
     .cta-btn {
       position: absolute;
       top: 0;
       left: 0;
-      width: 728px;
-      height: 90px;
+      width: 300px;
+      height: 600px;
       opacity: 1;
       z-index: 12;
     }
@@ -75,8 +75,8 @@
 
     .banner-border {
       position: absolute;
-      width: 726px;
-      height: 88px;
+      width: 298px;
+      height: 598px;
       border: 1px solid #000000;
       pointer-events: none;
       z-index: 6;
@@ -99,8 +99,8 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 728px;
-      height: 90px;
+      width: 300px;
+      height: 600px;
       opacity: 0;
     }
     
@@ -165,14 +165,14 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 728px;
-      height: 90px;
+      width: 300px;
+      height: 600px;
     }
 
     .frame__headline {
       position: absolute;
-      width: 728px;
-      height: 90px;
+      width: 300px;
+      height: 600px;
       top: 0;
       left: 0;
       opacity: 1;
@@ -180,8 +180,8 @@
 
     .dash-wrapper {
       position: absolute;
-      width: 728px;
-      height: 90px;
+      width: 300px;
+      height: 600px;
       bottom: 0;
       left: 0;
       z-index: 7;
@@ -189,8 +189,8 @@
 
     .dash-logos {
       position: absolute;
-      width: 728px;
-      height: 71px;
+      width: 300px;
+      height: 109px;
       bottom: 0;
       left: 0;
       overflow: hidden;
@@ -198,8 +198,8 @@
 
     .dash-nums {
       position: absolute;
-      width: 728px;
-      height: 90px;
+      width: 300px;
+      height: 600px;
       left: 0;
       bottom: 0px;
       opacity: 0;
@@ -211,8 +211,8 @@
 
     .dash-logos img {
       position: absolute;
-      width: 728px;
-      height: 90px;
+      width: 300px;
+      height: 600px;
       left: 0;
       bottom: 0px;
     }
@@ -226,8 +226,8 @@
       var bannerContent = document.querySelector('.banner-content');
       
       var bannerConfig = {
-        width: 728,
-        height: 90
+        width: 300,
+        height: 600
       }
       var bannerTL;
 
@@ -264,33 +264,33 @@
           
           .to(f2_head, .6, { autoAlpha: 1, ease: Sine.easeOut }, '+=0')
           .to(f2_bg, .7, { autoAlpha: 1, ease: Sine.easeOut }, '-=.3')
-          .from(f2_dash, .5, { top:'+=200%', ease: Sine.easeOut }, '-=.4')
-          .from(f2_dash_logo, .5, { bottom:'-=200%', ease: Sine.easeOut }, '-=.5')
-          .from(f2_dash_num, .5, { bottom:'-=200%', ease: Sine.easeOut }, '-=.5')
+          .from(f2_dash, .5, { top:'+=80%', ease: Sine.easeOut }, '-=.4')
+          .from(f2_dash_num, .6, { bottom:'-=300px', ease: Sine.easeOut }, '-=.3')
+          .from(f2_dash_logo, .6, { bottom:'-=300px', ease: Sine.easeOut }, '-=.4')
           .to(f2_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
 
           .to(f3_head, .6, { autoAlpha: 1, ease: Sine.easeOut }, '+=0')
           .from(f3_bg, .5, { left: '+=100%', ease: Sine.easeOut }, '-=.3')
-          .to(f2_dash_logo, .5, { bottom:'+=125px', ease: Sine.easeOut }, '-=.5')
-          .to(f2_dash_num, .5, { autoAlpha: 0, ease: Sine.easeOut }, '-=.5')
-          .from(f3_dash_logo, .5, { bottom:'-=125px', ease: Sine.easeOut }, '-=.5')
-          .to(f3_dash_num, .5, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
+          .to(f2_dash_logo, .6, { bottom:'-=300px', ease: Sine.easeOut }, '-=.5')
+          .to(f2_dash_num, .6, { autoAlpha: 0, ease: Sine.easeOut }, '-=.5')
+          .from(f3_dash_logo, .6, { bottom:'-=300px', ease: Sine.easeOut }, '-=.5')
+          .to(f3_dash_num, .6, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
           .from(f3_dash_logo, .2, { autoAlpha: 0, ease: Sine.easeOut }, '-=.2')
           .to(f3_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
 
           .to(f4_head, .6, { autoAlpha: 1, ease: Sine.easeOut }, '+=0')
           .from(f4_bg, .5, { left: '+=100%', ease: Sine.easeOut }, '-=.3')
-          .to(f3_dash_logo, .5, { bottom:'+=125px', ease: Sine.easeOut }, '-=.5')
-          .to(f3_dash_num, .5, { autoAlpha: 0, ease: Sine.easeOut }, '-=.5')
-          .from(f4_dash_logo, .5, { bottom:'-=125px', ease: Sine.easeOut }, '-=.5')
-          .to(f4_dash_num, .5, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
+          .to(f3_dash_logo, .6, { bottom:'-=300px', ease: Sine.easeOut }, '-=.5')
+          .to(f3_dash_num, .6, { autoAlpha: 0, ease: Sine.easeOut }, '-=.5')
+          .from(f4_dash_logo, .6, { bottom:'-=300px', ease: Sine.easeOut }, '-=.5')
+          .to(f4_dash_num, .6, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
           .from(f4_dash_logo, .2, { autoAlpha: 0, ease: Sine.easeOut }, '-=.2')
 
-          .from(f5_bg, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
+          .from(f5_bg, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.3')
           .from(f5_copy_1, .6, { autoAlpha: 0, ease: Sine.easeOut }, '-=.1')
           .from(f5_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '-=.3')
-          .from (ctaBtn, .5, { opacity: 0, y:200, x:0, ease: Sine.easeOut }, '-=.3')
-          .from(f5_copy_2, .5, { autoAlpha: 0, y:200, x:0, ease: Sine.easeOut }, '-=.1')
+          .from (ctaBtn, .5, { opacity: 0, y:600, x:0, ease: Sine.easeOut }, '-=.3')
+          .from(f5_copy_2, .5, { autoAlpha: 0, y:600, x:0, ease: Sine.easeOut }, '-=.1')
 
       }
 
@@ -335,16 +335,15 @@
         document.querySelector('.f5-bg').setAttribute('src','./images/SXM_Concept_4-F5-bg.png');
         document.querySelector('.f5-cta').setAttribute('src','./images/CTA_button.png');
         
-        
-        
+
 
         
         playFrames();
 
-        // setTimeout(function () {
-        //   bannerTL.pause();
-        //   console.log('pausing');
-        // }, 15000)
+           setTimeout(function () {
+           bannerTL.pause();
+           console.log('pausing');
+         }, 15000)
       }
 
       function ctaOnHover(e) {
@@ -405,7 +404,7 @@
   </head>
 
 <body>
-  <div id="container" class="container b-728x90" style="background-color: #000000;">
+  <div id="container" class="container b-300x600" style="background-color: #000000;">
     <div class="banner-border"></div>
     <a class="exit" href="javascript:void(window.open(window.clickTag))"></a>
     <div class="banner-content">
