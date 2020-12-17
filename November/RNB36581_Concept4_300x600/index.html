@@ -261,15 +261,14 @@
         bannerTL
           .from(f1_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '-=0')
           .to(f1_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
-          
+
           .to(f2_head, .6, { autoAlpha: 1, ease: Sine.easeOut }, '+=0')
           .to(f2_bg, .7, { autoAlpha: 1, ease: Sine.easeOut }, '-=.3')
-          .from(f2_dash, .5, { top:'+=80%', ease: Sine.easeOut }, '-=.4')
-          .from(f2_dash_num, .6, { bottom:'-=300px', ease: Sine.easeOut }, '-=.3')
-          .from(f2_dash_logo, .6, { bottom:'-=300px', ease: Sine.easeOut }, '-=.4')
+          .from(f2_dash, .5, { y:600, x:0, ease: Sine.easeOut }, '-=.3')
+          .from([f2_dash_logo,f2_dash_num], .5, { y:600, x:0, ease: Sine.easeOut }, '-=.5')
           .to(f2_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
 
-          .to(f3_head, .6, { autoAlpha: 1, ease: Sine.easeOut }, '+=0')
+          .to(f3_head, .6, { autoAlpha: 1, ease: Sine.easeOut }, '+=.5')
           .from(f3_bg, .5, { left: '+=100%', ease: Sine.easeOut }, '-=.3')
           .to(f2_dash_logo, .6, { bottom:'-=300px', ease: Sine.easeOut }, '-=.5')
           .to(f2_dash_num, .6, { autoAlpha: 0, ease: Sine.easeOut }, '-=.5')
@@ -340,10 +339,10 @@
         
         playFrames();
 
-           setTimeout(function () {
-           bannerTL.pause();
-           console.log('pausing');
-         }, 15000)
+      //   setTimeout(function () {
+      //   bannerTL.pause();
+      //    console.log('pausing');
+      // }, 15000)
       }
 
       function ctaOnHover(e) {
