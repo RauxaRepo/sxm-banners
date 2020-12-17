@@ -90,9 +90,6 @@
       opacity: 1;
       z-index: 12;
     }
-    .cta-btn.hovered img{
-      transform: scale(1.05);
-    }
 
    .logo {
       z-index: 12;
@@ -105,9 +102,6 @@
 
     .f1-head {
       z-index: 2;
-    }
-    .f1-bg {
-      z-index: 1;
     }
 
     .frame--2 {
@@ -154,7 +148,8 @@
       z-index: 7;
     }
 
-    .f3-bg, .f4-bg, .f5-bg {
+    .f1-bg, .f3-bg, 
+    .f4-bg, .f5-bg {
       z-index: 1;
     }
 
@@ -252,12 +247,11 @@
           .to(f3_dash_info, .5, { bottom: '+=100%', ease: Sine.easeOut }, '-=.4')
           .from(f4_dash_info, .5, { bottom: '-=600px', ease: Sine.easeOut }, '-=.4')
 
-          .from(f5_bg, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
+          .from(f5_bg, .6, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.2')
           .from(f5_copy_1, .6, { autoAlpha: 0, ease: Sine.easeOut }, '-=.1')
           .from(f5_head, .6, { autoAlpha: 0, ease: Sine.easeOut }, '-=.3')
           .from (ctaBtn, .5, { opacity: 0, y:600, x:0, ease: Sine.easeOut }, '-=.3')
           .from(f5_copy_2, .5, { autoAlpha: 0, y:600, x:0, ease: Sine.easeOut }, '-=.1')
-
       }
 
 
@@ -275,13 +269,13 @@
         bannerTL = new TimelineMax({ paused: false, delay: .5 });
 
         //set images
-        document.querySelector('.f1-bg').setAttribute('src','./images/SXM_Concept_3-F1-bg.png');
+        document.querySelector('.f1-bg').setAttribute('src','./images/SXM_Concept_3-F1-bg.jpg');
         document.querySelector('.logo').setAttribute('src','./images/SXM_Concept_3-F1-logo.png');
         document.querySelector('.f1-head').setAttribute('src','./images/SXM_Concept_3-F1-text.png');
 
         //
         document.querySelector('.f2-head').setAttribute('src','./images/SXM_Concept_3-F2-text.png');
-        document.querySelector('.f2-bg').setAttribute('src','./images/SXM_Concept_3-F2-bg.png');
+        document.querySelector('.f2-bg').setAttribute('src','./images/SXM_Concept_3-F2-bg.jpg');
         document.querySelector('.f2-dash').setAttribute('src','./images/SXM_Concept_3-F2-dash.png');
         //
         document.querySelector('.f3-head').setAttribute('src','./images/SXM_Concept_3-F3-text.png');
@@ -291,7 +285,7 @@
         
         //
         document.querySelector('.f4-head').setAttribute('src','./images/SXM_Concept_3-F4-text.png');
-        document.querySelector('.f4-bg').setAttribute('src','./images/SXM_Concept_3-F4-bg.png');
+        document.querySelector('.f4-bg').setAttribute('src','./images/SXM_Concept_3-F4-bg.jpg');
         document.querySelector('.f4-dash-info').setAttribute('src','./images/SXM_Concept_3-F4-ch-info.png');
         //
         document.querySelector('.f5-head').setAttribute('src','./images/SXM_Concept_3-F5-text.png');
@@ -303,10 +297,10 @@
 
         playFrames();
 
-         setTimeout(function () {
-          bannerTL.pause();
-           console.log('pausing');
-        }, 15000)
+       //  setTimeout(function () {
+       //   bannerTL.pause();
+       //    console.log('pausing');
+      //  }, 15000)
       }
 
       function ctaOnHover(e) {
@@ -319,12 +313,12 @@
 
       function preload() {
         images = [
-          './images/SXM_Concept_3-F1-bg.png',
+          './images/SXM_Concept_3-F1-bg.jpg',
           './images/SXM_Concept_3-F1-logo.png',
           './images/SXM_Concept_3-F1-text.png',
           
           './images/SXM_Concept_3-F2-text.png',
-          './images/SXM_Concept_3-F2-bg.png',
+          './images/SXM_Concept_3-F2-bg.jpg',
           './images/SXM_Concept_3-F2-dash.png',
           './images/SXM_Concept_3-F2-text.png',
 
@@ -334,7 +328,7 @@
           './images/SXM_Concept_3-F3-ch-info.png',
 
           './images/SXM_Concept_3-F4-text.png',
-          './images/SXM_Concept_3-F4-bg.png',
+          './images/SXM_Concept_3-F4-bg.jpg',
           './images/SXM_Concept_3-F4-ch-info.png',
 
           './images/SXM_Concept_3-F5-text.png',
