@@ -111,8 +111,6 @@
       left: 0;
       width: 100%;
       height: 100%;
-      /* background-color: #342696; */
-      /* transform: translateX(300px); */
     }
 
     .frame__headline {
@@ -218,12 +216,6 @@
       opacity: 0;
       transform: translateY(-100px);
     }
-
-
-    /* .frame--3 .frame__thumb {
-      transform: translateY(280px);
-      width: 78px;
-    } */
     
   </style>
   <script type="text/javascript" charset="utf-8">
@@ -246,8 +238,6 @@
         var thumbCenter = document.querySelector('.js-f1-thumb');
         var thumbLeft = document.querySelector('.js-f1-thumb-left');
         var thumbRight = document.querySelector('.js-f1-thumb-right');
-        // var thumbLeft2 = document.querySelector('.js-f1-thumb-left2');
-        // var thumbRight2 = document.querySelector('.js-f1-thumb-right2');
         var f1screen = document.querySelector('.js-f1-screen');
 
         var f2screen = document.querySelector('.js-f2-screen');
@@ -255,16 +245,12 @@
         var f2thumbCenter = document.querySelector('.js-f2-thumb');
         var f2thumbLeft = document.querySelector('.js-f2-thumb-left');
         var f2thumbRight = document.querySelector('.js-f2-thumb-right');
-        // var f2thumbLeft2 = document.querySelector('.js-f2-thumb-left2');
-        // var f2thumbRight2 = document.querySelector('.js-f2-thumb-right2');
 
         var f3screen = document.querySelector('.js-f3-screen');
         var f3h1 = document.querySelector('.js-f3-head');
         var f3thumbCenter = document.querySelector('.js-f3-thumb');
         var f3thumbLeft = document.querySelector('.js-f3-thumb-left');
         var f3thumbRight = document.querySelector('.js-f3-thumb-right');
-        // var f3thumbLeft2 = document.querySelector('.js-f3-thumb-left2');
-        // var f3thumbRight2 = document.querySelector('.js-f3-thumb-right2');
 
         var f4screen = document.querySelector('.js-f4-screen');
         var f4h1 = document.querySelector('.js-f4-head');
@@ -287,8 +273,6 @@
               f2screen.src = './images/F2-screen.png';
             preloadImages([
               './images/F2-H.png',
-              // './images/f2-thumb5.png',
-              // './images/f2-thumb4.png',
               './images/f2-thumb3.png',
               './images/f2-thumb2.png',
               './images/f2-thumb1.png'],
@@ -302,7 +286,6 @@
           .to([thumbRight], .2, { x: 95, ease: Expo.out,
             onComplete:function(){
             frame2();
-            console.log(bannerTL.time());
             }
           }, '-=.2')
       }
@@ -317,8 +300,6 @@
 
             preloadImages([
               './images/F3-H.png',
-              // './images/f3-thumb5.png',
-              // './images/f3-thumb4.png',
               './images/f3-thumb3.png',
               './images/f3-thumb2.png',
               './images/f3-thumb1.png'],
@@ -333,7 +314,6 @@
           .to([f2thumbRight], .2, { x: 95, ease: Expo.out,
             onComplete:function(){
             frame3();
-            console.log(bannerTL.time());
             }
           }, '-=.2')
       }
@@ -360,7 +340,6 @@
           .to([f3thumbRight], .2, { x: 95, ease: Expo.out,
             onComplete:function(){
             frame4();
-            console.log(bannerTL.time());
             }
           }, '-=.2')
       }
@@ -386,7 +365,6 @@
           .to([f4h1], .2, { opacity: 1, ease: Expo.out,
             onComplete:function(){
             endframe();
-            console.log(bannerTL.time());
             }}, '-=.1')
 
       }
@@ -403,10 +381,7 @@
           .to([efh1], .2, { opacity: 1, ease: Expo.out}, '-=.1')
           .to([efh2], .2, { opacity: 1, ease: Expo.out}, '+=0')
           .to([efh3], .2, { opacity: 1, ease: Expo.out}, '+=0')
-          .to([cta], .2, { y: 191, ease: Expo.out,
-          onComplete: function() {
-            console.log(bannerTL.time())
-          }}, '+=0')
+          .to([cta], .2, { y: 191, ease: Expo.out}, '+=0')
       }
 
       function preloadImages(imageUrls, frameContainer) {
@@ -436,8 +411,6 @@
           './images/device-mask.png',
           './images/F1-screen.png',
           './images/F1-H.png',
-          // './images/f1-thumb5.png',
-          // './images/f1-thumb4.png',
           './images/f1-thumb3.png',
           './images/f1-thumb2.png',
           './images/f1-thumb1.png',
@@ -476,24 +449,18 @@
       </div>
       <div class="frame frame--1 js-frame-1">
         <img class="frame__headline js-f1-head" src="./images/F1-H.png" alt="">
-        <!-- <img class="frame__thumb js-f1-thumb-left2" src="./images/f1-thumb5.png" alt="">
-        <img class="frame__thumb js-f1-thumb-right2" src="./images/f1-thumb4.png" alt=""> -->
         <img class="frame__thumb js-f1-thumb-right" src="./images/f1-thumb3.png" alt="">
         <img class="frame__thumb js-f1-thumb-left" src="./images/f1-thumb2.png" alt="">
         <img class="frame__thumb js-f1-thumb" src="./images/f1-thumb1.png" alt="">
       </div>
       <div class="frame frame--2 js-frame-2">
         <img class="frame__headline js-f2-head" src="" alt="">
-        <!-- <img class="frame__thumb js-f2-thumb-left2" src="" alt="">
-        <img class="frame__thumb js-f2-thumb-right2" src="" alt=""> -->
         <img class="frame__thumb js-f2-thumb-right" src="" alt="">
         <img class="frame__thumb js-f2-thumb-left" src="" alt="">
         <img class="frame__thumb js-f2-thumb" src="" alt="">
       </div>
       <div class="frame frame--3 js-frame-3">
         <img class="frame__headline js-f3-head" src="" alt="">
-        <!-- <img class="frame__thumb js-f3-thumb-left2" src="" alt="">
-        <img class="frame__thumb js-f3-thumb-right2" src="" alt=""> -->
         <img class="frame__thumb js-f3-thumb-right" src="" alt="">
         <img class="frame__thumb js-f3-thumb-left" src="" alt="">
         <img class="frame__thumb js-f3-thumb" src="" alt="">
