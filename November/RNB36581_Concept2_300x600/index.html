@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title></title>
+  <meta name="ad.size" content="width=300,height=600">
+  <script type="text/javascript">
+    var clickTag = "https://www.google.com/";
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+  <style type="text/css">
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    * {
+      padding: 0;
+    }
+
+    .container {
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .banner-content {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      display: none;
+      z-index: 1;
+    }
+
+    .banner-content.banner-content--active {
+      opacity: 1;
+      display: block;
+    }
+
+    .b-300x600 {
+      width: 300px;
+      height: 600px;
+      padding: 0;
+    }
+
+    /*CTA BTN*/
+    .btn-container {
+      width: 300px;
+      height: 600px;
+      background-color: transparent;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      z-index: 100;
+      cursor: pointer;
+    }
+
+    img {
+      width: 300px;
+      height: 600px;
+    }
+
+    .cta-btn {
+      background-color: #fff;
+      opacity: 1;
+      width: 93px;
+      height: 23px;
+      border-radius: 11px;
+      top: 103px;
+      left: 15px;
+      position: absolute;
+      z-index: -1;
+    }
+
+    .cta-btn.hovered {
+      transform: scale(1.05);
+    }
+
+
+    .banner-border {
+      position: absolute;
+      width: 298px;
+      height: 598px;
+      border: 1px solid #81bae8;
+      pointer-events: none;
+      z-index: 6;
+      top: 0px;
+      left: 0px;
+    }
+
+    .exit {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 5;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+    }
+
+
+    .frame {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+    
+      /* transform: translateX(300px); */
+    }
+
+    .frame--1 {
+      z-index: 10;
+    }
+
+    .frame--2 {
+      opacity: 0;
+      z-index: 9;
+    }
+
+    .frame--3 {
+      opacity: 0;
+      z-index: 8;
+    }
+
+    .frame--4 {
+      opacity: 0;
+      z-index: 7;
+    }
+
+    .frame--5 {
+      opacity: 0;
+      z-index: 6;
+    }
+
+    .frame__headline {
+      position: absolute;
+      height: 38px;
+      width: auto;
+      left: 15px;
+      margin: 0 auto;
+      top: 80px;
+      opacity: 0;
+    }
+
+    .frame--2 .frame__headline,
+    .frame--3 .frame__headline,
+    .frame--4 .frame__headline {
+      left: 17px;
+    }
+
+    .frame--4 .frame__headline {
+      height: 120px;
+    }
+
+    .frame__subhead {
+      position: absolute;
+      height: 38px;
+      width: auto;
+      left: 15px;
+      margin: 0 auto;
+      top: 127px;
+      opacity: 0;
+    }
+
+    .frame--3 .frame__subhead {
+      height: 39px;
+    }
+
+    .frame__background, .frame__slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 0;
+    }
+
+    .logo {
+      width: 55px;
+      height: auto;
+      position: absolute;
+      left: 15px;
+      bottom: 15px;
+      z-index: 10;
+    }
+
+    .device-mask {
+      width: 127px;
+      height: auto;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: 0 auto;
+      z-index: 1;
+    }
+
+    .frame__phone {
+      width: auto;
+      height: 223px;
+      position: absolute;
+      right: -68px;
+      bottom: 88px;
+      margin: 0 auto;
+      z-index: 1;
+      opacity: 1;
+    }
+
+    .frame__screen {
+      width: auto;
+      position: absolute;
+      margin: 0 auto;
+      opacity: 0;
+
+      height: 203px;
+      right: -50px;
+      transform: translateY(292px);
+    }
+
+    .frame__screen--bottom {
+      opacity: 1;
+      height: 180px;
+      right: -38px;
+      transform: translateY(292px);
+    }
+
+    .frame__screen-container {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .frame__more {
+      width: auto;
+      height: 30px;
+      position: absolute;
+      top: 40px;
+      left: 15px;
+      opacity: 0;
+    }
+
+    .cta {
+      opacity: 1;
+      transform: translateX(-375px);
+      position: absolute;
+      width: 107px;
+      height: auto;
+      top: 269px;
+    }
+
+    .frame--5 .frame__headline {
+      height: 162px;
+      top: 40px;
+    }
+
+    .frame--5 .frame__subhead {
+      top: 217px;
+      height: 32px;
+    }
+
+    .frame--4 .frame__headline {
+      top: 40px;
+    }
+  </style>
+  <script type="text/javascript" charset="utf-8">
+    document.addEventListener("DOMContentLoaded", function (e) {
+      var loadedImage = 0;
+      var images = [];
+      var exit = document.querySelector('.exit');
+      var bannerContent = document.querySelector('.banner-content');
+      var ctaBtn = document.querySelector('.cta-btn');
+      var bannerConfig = {
+        width: 300,
+        height: 600
+      }
+      var bannerTL;
+
+      function playFrames() {
+        var more = document.querySelector('.js-frame-more');
+        var h1 = document.querySelector('.js-f1-head');
+        var sh1 = document.querySelector('.js-f1-subhead');
+        var f1ScreenTop = document.querySelector('.js-f1-screen-top');
+        var f1ScreenMiddle = document.querySelector('.js-f1-screen-middle');
+        var f1 = document.querySelector('.js-frame-1');
+        var screenContainer = document.querySelector('.js-f1-screen-container');
+
+        bannerTL
+          .to(f1, 0, { opacity: 1})
+          .to([h1, more], .2, { opacity: 1, ease: Expo.out }, '=.25')
+          .to([f1ScreenMiddle], .2, { opacity: 1, ease: Expo.out,
+            onStart:function() {
+            preloadImages([
+              './images/F2-H.png',
+              './images/F2-SH.png',
+              './images/F2-screen-bottom.png',
+              './images/F2-screen-middle.png',
+              './images/F2-screen-top.png'],
+              document.querySelector('.js-frame-2'));
+            }
+            }, '+=.2')
+          .to([f1ScreenMiddle, f1ScreenTop], .2, { y: 270, ease: Expo.out }, '-=.2')
+          .to([f1ScreenTop], .2, { opacity: 1, ease: Expo.out }, '+=.75')
+          .to([f1ScreenTop], .2, { y: 250, opacity: 1, ease: Expo.out}, '-=.2')
+          .to([sh1], .2, { opacity: 1, ease: Expo.out}, '-=0')
+          .to([f1ScreenTop, f1ScreenMiddle], .2, { y: 290, ease: Expo.out,
+            onComplete:function(){
+            frame2();
+            
+            }
+            }, '+=.8')
+      }
+
+      function frame2() {
+        var sh2 = document.querySelector('.js-f2-subhead');
+        var f2ScreenTop = document.querySelector('.js-f2-screen-top');
+        var f2ScreenMiddle = document.querySelector('.js-f2-screen-middle');
+        var f1 = document.querySelector('.js-frame-1');
+        var f2 = document.querySelector('.js-frame-2');
+        var h1 = document.querySelector('.js-f2-head');
+
+        bannerTL
+          .to([f1], .2, { opacity: 0, ease: Expo.out }, '-=0')
+          .to([f2], .2, { opacity: 1, ease: Expo.out }, '-=.75')
+          .to([h1], .2, { opacity: 1, ease: Expo.out }, '+=.2')
+          .to([f2ScreenMiddle], .2, { opacity: 1, ease: Expo.out,
+            onStart:function() {
+            preloadImages([
+              './images/F3-H.png',
+              './images/F3-SH.png',
+              './images/F3-screen-bottom.png',
+              './images/F3-screen-middle.png',
+              './images/F3-screen-top.png'],
+              document.querySelector('.js-frame-3'));
+            }
+          }, '+=.2')
+          .to([f2ScreenMiddle, f2ScreenTop], .2, { y: 270, ease: Expo.out }, '-=.2')
+          .to([f2ScreenTop], .2, { opacity: 1, ease: Expo.out }, '+=.75')
+          .to([f2ScreenTop], .2, { y: 250, opacity: 1, ease: Expo.out}, '-=.2')
+          .to([sh2], .2, { opacity: 1, ease: Expo.out}, '-=0')
+          .to([f2ScreenTop, f2ScreenMiddle], .2, { y: 290, ease: Expo.out,
+            onComplete:function(){
+              frame3();
+              
+              }
+            }, '+=.8')
+      }
+
+      function frame3() {
+        var sh3 = document.querySelector('.js-f3-subhead');
+        var f3ScreenTop = document.querySelector('.js-f3-screen-top');
+        var f3ScreenMiddle = document.querySelector('.js-f3-screen-middle');
+        var f2 = document.querySelector('.js-frame-2');
+        var f3 = document.querySelector('.js-frame-3');
+        var h1 = document.querySelector('.js-f3-head');
+
+
+        bannerTL
+          .to([f2], .2, { opacity: 0, ease: Expo.out }, '-=0')
+          .to([f3], .2, { opacity: 1, ease: Expo.out }, '-=.75')
+          .to([h1], .2, { opacity: 1, ease: Expo.out }, '+=.2')
+          .to([f3ScreenMiddle], .2, { opacity: 1, ease: Expo.out,
+            onStart:function() {
+            preloadImages([
+              './images/F4-H.png',
+              './images/F4-screen-bottom.png',
+              './images/F4-screen-middle.png',
+              './images/F4-screen-top.png',
+              './images/F4-screen-top2.png'],
+              document.querySelector('.js-frame-4'));
+
+          }
+          }, '+=.2')
+          .to([f3ScreenMiddle, f3ScreenTop], .2, { y: 270, ease: Expo.out }, '-=.2')
+          .to([f3ScreenTop], .2, { opacity: 1, ease: Expo.out }, '+=.75')
+          .to([f3ScreenTop], .2, { y: 250, opacity: 1, ease: Expo.out}, '-=.2')
+          .to([sh3], .2, { opacity: 1, ease: Expo.out}, '-=0')
+          .to([f3ScreenTop, f3ScreenMiddle], .2, { y: 290, ease: Expo.out,
+            onComplete:function(){
+              frame4();
+              
+              }
+            }, '+=.8')
+      }
+
+      function frame4() {
+        var f4ScreenTop2 = document.querySelector('.js-f4-screen-top2');
+        var f4ScreenTop = document.querySelector('.js-f4-screen-top');
+        var f4ScreenMiddle = document.querySelector('.js-f4-screen-middle');
+        var f3 = document.querySelector('.js-frame-3');
+        var f4 = document.querySelector('.js-frame-4');
+        var h1 = document.querySelector('.js-f4-head');
+        var more = document.querySelector('.js-frame-more');
+
+          bannerTL
+          
+          .to([f3, more], .2, { opacity: 0, ease: Expo.out }, '-=0')
+          .to([f4], .2, { opacity: 1, ease: Expo.out }, '-=.75')
+          .to([h1], .2, { opacity: 1, ease: Expo.out }, '+=.2')
+          .to([f4ScreenMiddle], .2, { opacity: 1, ease: Expo.out,
+            onStart:function() {
+              
+            preloadImages([
+              './images/endframe-h.png',
+              './images/endframe-sh.png',
+              './images/screen-endframe.png',
+              './images/cta.png'],
+              document.querySelector('.js-endframe'));
+            }
+          }, '+=.2')
+          .to([f4ScreenMiddle, f4ScreenTop, f4ScreenTop2], .2, { y: 276, ease: Expo.out }, '-=.2')
+          .to([f4ScreenTop], .2, { opacity: 1, ease: Expo.out }, '+=.75')
+          .to([f4ScreenTop, f4ScreenTop2], .2, { y: 256, ease: Expo.out}, '-=.2')
+          .to([f4ScreenTop2], .2, { opacity: 1, ease: Expo.out }, '+=.75')
+          .to([f4ScreenTop2], .2, { y: 236, opacity: 1, ease: Expo.out}, '-=.2')
+          .to([f4ScreenTop2], .2, { y: 236, opacity: 1, ease: Expo.out}, '+=.2')
+          .to([f4ScreenTop, f4ScreenMiddle, f4ScreenTop2], .2, { y: 290, ease: Expo.out,
+            onComplete:function(){
+              endframe();
+              
+              }
+            }, '+=.8')
+          .timeScale( 1.25 )
+      }
+
+      function endframe() {
+        var f4 = document.querySelector('.js-frame-4');
+        var f5 = document.querySelector('.js-endframe');
+        var cta = document.querySelector('.js-cta');
+        var h1 = document.querySelector('.js-endframe-head');
+        var shEnd = document.querySelector('.js-endframe-subhead');
+
+        bannerTL
+          .timeScale( 1 )
+          .to([f4], .75, { opacity: 0, ease: Expo.out }, '+=0')
+          .to([f5], .75, { opacity: 1, ease: Expo.out }, '-=.75')
+          .to([h1], .2, { opacity: 1, ease: Expo.out }, '+=.2')
+          .to([shEnd], .2, { opacity: 1, ease: Expo.out}, '+=.2')
+          .to([cta], .2, { x: 15, ease: Expo.out }, '+=.2')
+      }
+
+      function preloadImages(imageUrls, frameContainer) {
+        var frameImages = Array.from(frameContainer.querySelectorAll('img'));
+        
+        for (var i = 0; i < imageUrls.length; i++) {
+          frameImages[i].src = imageUrls[i];
+        }
+      }
+
+      function init() {
+        bannerContent.classList.add('banner-content--active');
+
+        bannerTL = new TimelineMax({ paused: false });
+        playFrames();
+
+        // setTimeout(function () {
+        //   bannerTL.pause();
+        //   console.log('pausing');
+        // }, 15000)
+      }
+
+      function ctaOnHover(e) {
+        if (e.type == 'mouseenter') {
+          ctaBtn.classList.add('hovered');
+        } else {
+          ctaBtn.classList.remove('hovered');
+        }
+      }
+
+      function preload() {
+        images = [
+          './images/logo.png',
+          './images/device-mask.png',
+          './images/F1-H.png',
+          './images/F1-SH.png',
+          './images/F1-screen-bottom.png',
+          './images/F1-screen-middle.png',
+          './images/F1-screen-top.png',
+          './images/more-H.png',
+        ];
+
+        for (var i = 0; i < images.length; i++) {
+          var imageObj = new Image();
+          imageObj.src = images[i];
+          imageObj.addEventListener("load", iLoad, false);
+        }
+
+      }
+      function iLoad() {
+        loadedImage++;
+        if (images.length == loadedImage) {
+          init();
+        }
+      }
+
+      preload();
+    });
+  </script>
+
+<body>
+  <div id="container" class="container b-300x600" style="background-color: #81bae8;">
+    <div class="banner-border"></div>
+    <a class="exit" href="javascript:void(window.open(window.clickTag))"></a>
+    <div class="banner-content">
+      <img class="logo" src="./images/logo.png" alt="">
+      <img class="frame__phone" src="./images/device-mask.png" alt="">
+      <img class="frame__more js-frame-more" src="./images/more-H.png" alt="">
+      <div class="frame frame--1 js-frame-1">
+        <img class="frame__headline js-f1-head" src="./images/F1-H.png" alt="">
+        <img class="frame__subhead js-f1-subhead" src="./images/F1-SH.png" alt="">
+        <img class="frame__screen frame__screen--bottom" alt="" src="./images/F1-screen-bottom.png">
+        <div class="frame__screen-container js-f1-screen-container">
+          <img class="frame__screen js-f1-screen-middle" alt="" src="./images/F1-screen-middle.png">
+          <img class="frame__screen js-f1-screen-top" alt="" src="./images/F1-screen-top.png">
+        </div>
+      </div>
+      <div class="frame frame--2 js-frame-2">
+        <img class="frame__headline js-f2-head" src="" alt="">
+        <img class="frame__subhead js-f2-subhead" src="" alt="">
+        <img class="frame__screen frame__screen--bottom" alt="" src="">
+        <div class="frame__screen-container js-f2-screen-container">
+          <img class="frame__screen js-f2-screen-middle" alt="" src="">
+          <img class="frame__screen js-f2-screen-top" alt="" src="">
+        </div>
+      </div>
+      <div class="frame frame--3 js-frame-3">
+        <img class="frame__headline js-f3-head" src="" alt="">
+        <img class="frame__subhead js-f3-subhead" src="" alt="">
+        <img class="frame__screen frame__screen--bottom" alt="" src="">
+        <div class="frame__screen-container js-f3-screen-container">
+          <img class="frame__screen js-f3-screen-middle" alt="" src="">
+          <img class="frame__screen js-f3-screen-top" alt="" src="">
+        </div>
+      </div>
+      <div class="frame frame--4 js-frame-4">
+        <img class="frame__headline js-f4-head" src="" alt="">
+        <img class="frame__screen frame__screen--bottom" alt="" src="">
+        <div class="frame__screen-container js-f4-screen-container">
+          <img class="frame__screen js-f4-screen-middle" alt="" src="">
+          <img class="frame__screen js-f4-screen-top" alt="" src="">
+          <img class="frame__screen js-f4-screen-top2" alt="" src="">
+        </div>
+      </div>
+      <div class="frame frame--5 js-endframe">
+        <img class="frame__headline js-endframe-head" src="" alt="">
+        <img class="frame__subhead js-endframe-subhead" src="" alt="">
+        <img class="frame__screen frame__screen--bottom" alt="" src="">
+        <img class="cta js-cta" src="" alt="">
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
