@@ -216,7 +216,7 @@
       height: 223px;
       position: absolute;
       right: -68px;
-      bottom: 88px;
+      bottom: 78px;
       margin: 0 auto;
       z-index: 1;
       opacity: 1;
@@ -230,14 +230,14 @@
 
       height: 203px;
       right: -50px;
-      transform: translateY(292px);
+      transform: translateY(302px);
     }
 
     .frame__screen--bottom {
       opacity: 1;
       height: 180px;
       right: -38px;
-      transform: translateY(292px);
+      transform: translateY(302px);
     }
 
     .frame__screen-container {
@@ -318,11 +318,11 @@
               document.querySelector('.js-frame-2'));
             }
             }, '+=.2')
-          .to([f1ScreenMiddle, f1ScreenTop], .2, { y: 270, ease: Expo.out }, '-=.2')
+          .to([f1ScreenMiddle, f1ScreenTop], .2, { y: 280, ease: Expo.out }, '-=.2')
           .to([f1ScreenTop], .2, { opacity: 1, ease: Expo.out }, '+=.75')
-          .to([f1ScreenTop], .2, { y: 250, opacity: 1, ease: Expo.out}, '-=.2')
+          .to([f1ScreenTop], .2, { y: 260, opacity: 1, ease: Expo.out}, '-=.2')
           .to([sh1], .2, { opacity: 1, ease: Expo.out}, '-=0')
-          .to([f1ScreenTop, f1ScreenMiddle], .2, { y: 290, ease: Expo.out,
+          .to([f1ScreenTop, f1ScreenMiddle], .2, { y: 300, ease: Expo.out,
             onComplete:function(){
             frame2();
             
@@ -353,11 +353,11 @@
               document.querySelector('.js-frame-3'));
             }
           }, '+=.2')
-          .to([f2ScreenMiddle, f2ScreenTop], .2, { y: 270, ease: Expo.out }, '-=.2')
+          .to([f2ScreenMiddle, f2ScreenTop], .2, { y: 280, ease: Expo.out }, '-=.2')
           .to([f2ScreenTop], .2, { opacity: 1, ease: Expo.out }, '+=.75')
-          .to([f2ScreenTop], .2, { y: 250, opacity: 1, ease: Expo.out}, '-=.2')
+          .to([f2ScreenTop], .2, { y: 260, opacity: 1, ease: Expo.out}, '-=.2')
           .to([sh2], .2, { opacity: 1, ease: Expo.out}, '-=0')
-          .to([f2ScreenTop, f2ScreenMiddle], .2, { y: 290, ease: Expo.out,
+          .to([f2ScreenTop, f2ScreenMiddle], .2, { y: 300, ease: Expo.out,
             onComplete:function(){
               frame3();
               
@@ -390,11 +390,11 @@
 
           }
           }, '+=.2')
-          .to([f3ScreenMiddle, f3ScreenTop], .2, { y: 270, ease: Expo.out }, '-=.2')
+          .to([f3ScreenMiddle, f3ScreenTop], .2, { y: 280, ease: Expo.out }, '-=.2')
           .to([f3ScreenTop], .2, { opacity: 1, ease: Expo.out }, '+=.75')
-          .to([f3ScreenTop], .2, { y: 250, opacity: 1, ease: Expo.out}, '-=.2')
+          .to([f3ScreenTop], .2, { y: 260, opacity: 1, ease: Expo.out}, '-=.2')
           .to([sh3], .2, { opacity: 1, ease: Expo.out}, '-=0')
-          .to([f3ScreenTop, f3ScreenMiddle], .2, { y: 290, ease: Expo.out,
+          .to([f3ScreenTop, f3ScreenMiddle], .2, { y: 300, ease: Expo.out,
             onComplete:function(){
               frame4();
               
@@ -427,13 +427,13 @@
               document.querySelector('.js-endframe'));
             }
           }, '+=.2')
-          .to([f4ScreenMiddle, f4ScreenTop, f4ScreenTop2], .2, { y: 276, ease: Expo.out }, '-=.2')
+          .to([f4ScreenMiddle, f4ScreenTop, f4ScreenTop2], .2, { y: 286, ease: Expo.out }, '-=.2')
           .to([f4ScreenTop], .2, { opacity: 1, ease: Expo.out }, '+=.75')
-          .to([f4ScreenTop, f4ScreenTop2], .2, { y: 256, ease: Expo.out}, '-=.2')
+          .to([f4ScreenTop, f4ScreenTop2], .2, { y: 266, ease: Expo.out}, '-=.2')
           .to([f4ScreenTop2], .2, { opacity: 1, ease: Expo.out }, '+=.75')
-          .to([f4ScreenTop2], .2, { y: 236, opacity: 1, ease: Expo.out}, '-=.2')
-          .to([f4ScreenTop2], .2, { y: 236, opacity: 1, ease: Expo.out}, '+=.2')
-          .to([f4ScreenTop, f4ScreenMiddle, f4ScreenTop2], .2, { y: 290, ease: Expo.out,
+          .to([f4ScreenTop2], .2, { y: 246, opacity: 1, ease: Expo.out}, '-=.2')
+          .to([f4ScreenTop2], .2, { y: 246, opacity: 1, ease: Expo.out}, '+=.2')
+          .to([f4ScreenTop, f4ScreenMiddle, f4ScreenTop2], .2, { y: 300, ease: Expo.out,
             onComplete:function(){
               endframe();
               
